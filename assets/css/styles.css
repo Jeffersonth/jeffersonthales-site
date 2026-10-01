@@ -1,0 +1,82 @@
+/* Base — fiel ao design "Landing Page.dc.html" */
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:#0B0814;color:#F5F3F7;font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:hover{color:#FF7A3D}
+input,select,textarea,button{font-family:inherit}
+img{max-width:none}
+::selection{background:#E8368F;color:#fff}
+:focus-visible{outline:2px solid #FF7A3D;outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:fixed;left:16px;top:-60px;z-index:200;padding:12px 16px;border-radius:12px;background:#F5F3F7;color:#14101C;font:600 14px/1 'Plus Jakarta Sans',sans-serif;transition:top .2s}
+.skip:focus{top:12px;color:#14101C}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes gradShift{to{background-position:200% 0}}
+@keyframes pulseRing{0%{transform:scale(1);opacity:.7}14%{transform:scale(1.7);opacity:0}100%{transform:scale(1.7);opacity:0}}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes dot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+
+/* Esconde os elementos animados até o script aplicar o estado inicial (evita "piscar") */
+html.js-pending [data-reveal]{visibility:hidden}
+
+/* Estados de hover (no design: atributo style-hover) */
+.h-grad-sm:hover{transform:translateY(-2px)!important;box-shadow:0 16px 36px -10px rgba(255,122,61,.75)!important;color:#fff!important}
+.h-grad:hover{transform:translateY(-2px)!important;box-shadow:0 20px 44px -12px rgba(255,122,61,.8)!important;color:#fff!important}
+.h-ghost:hover{background:rgba(255,255,255,.07)!important;border-color:rgba(255,255,255,.45)!important;color:#F5F3F7!important}
+.marquee:hover{animation-play-state:paused!important}
+.logo-item:hover{color:#fff!important}
+.h-seg:hover{border-color:rgba(232,54,143,.4)!important}
+.h-chip:hover{background:rgba(232,54,143,.14)!important;border-color:rgba(232,54,143,.6)!important}
+.h-filter:hover{border-color:rgba(255,255,255,.6)!important}
+.port-card:hover .port-frame{border-color:rgba(232,54,143,.5)!important;transform:translateY(-4px)!important}
+.h-price:hover{box-shadow:0 20px 44px -12px rgba(255,122,61,.85)!important;filter:brightness(1.06);color:#fff!important}
+.h-pack:hover{background:rgba(232,54,143,.08)!important;border-color:rgba(232,54,143,.5)!important;color:#F5F3F7!important}
+.h-testi:hover{border-color:rgba(255,255,255,.24)!important;background:rgba(255,255,255,.08)!important}
+.h-cta:hover{transform:translateY(-2px)!important;box-shadow:0 26px 60px -16px rgba(255,122,61,.9)!important;color:#fff!important}
+.h-submit:hover{background:#fff!important;transform:translateY(-2px)!important}
+.h-focus:focus{border-color:#E8368F!important;box-shadow:0 0 0 3px rgba(232,54,143,.25)!important}
+.h-scale:hover{transform:scale(1.06)!important}
+.h-light:hover{color:#fff!important}
+
+/* Desktop x celular (no design: isDesktop / isMobile, corte em 820px) */
+@media (max-width:819.98px){.dsk{display:none!important}}
+@media (min-width:820px){.mob{display:none!important}}
+
+/* Agentes de IA: celular fixo + etapas */
+.ag-phone{position:sticky;top:calc(50vh - 330px)}
+.ag-steps{flex-direction:column;overflow-x:visible;padding:12vh 0 22vh}
+.ag-step{flex:0 0 auto;min-height:64vh}
+.ag-steps::-webkit-scrollbar,.port-track::-webkit-scrollbar{display:none}
+@media (max-width:819.98px){
+  .ag-phone{position:relative;top:auto}
+  .ag-steps{flex-direction:row;overflow-x:auto;padding:4px 0 8px}
+  .ag-step{flex:0 0 84%;min-height:auto}
+}
+
+/* Processo: título fixo no desktop */
+.proc-title{position:sticky;top:120px}
+@media (max-width:819.98px){.proc-title{position:relative;top:auto}}
+
+/* Portfólio: rolagem horizontal fixa no desktop, carrossel no celular */
+.port-inner{position:sticky;top:0;height:100vh}
+.port-track{overflow-x:visible}
+.port-card{flex:0 0 440px}
+@media (max-width:819.98px){
+  .port-inner{position:relative;height:auto}
+  .port-track{overflow-x:auto}
+  .port-card{flex:0 0 85%}
+}
+
+/* Painel flutuante da Luna */
+.luna-panel{top:auto;right:24px;bottom:100px;left:auto;width:384px;height:min(600px,calc(100vh - 140px));border-radius:24px}
+@media (max-width:819.98px){.luna-panel{top:0;right:0;bottom:0;left:0;width:100%;height:100%;border-radius:0}}
+
+/* Movimento reduzido */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}

@@ -1,0 +1,5 @@
+# Bloqueia acesso público às dependências e aos arquivos do Composer
+<FilesMatch "^(composer\.(json|lock))$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 ^/api/vendor/

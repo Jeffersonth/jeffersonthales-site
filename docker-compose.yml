@@ -1,0 +1,18 @@
+# Projeto "jeffersonthales-site" no Docker Manager da VPS (Hostinger).
+# A imagem é construída direto deste repositório; o Traefik da VPS publica o domínio com HTTPS.
+# A chave da Luna vai na variável ANTHROPIC_API_KEY do projeto (hPanel → Docker Manager → Environment).
+services:
+  web:
+    build:
+      context: https://github.com/Jeffersonth/jeffersonthales-site.git#main
+    image: jeffersonthales-site:latest
+    container_name: jeffersonthales-site
+    restart: unless-stopped
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.jeffersonthales.rule=Host(`jeffersonthales.com`) || Host(`www.jeffersonthales.com`)
+      - traefik.http.routers.jeffersonthales.entrypoints=websecure
+      - traefik.http.routers.jeffersonthales.tls.certresolver=letsencrypt
+      - traefik.http.services.jeffersonthales.loadbalancer.server.port=80
