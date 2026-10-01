@@ -7,7 +7,7 @@ RewriteCond %{HTTP_HOST} ^jeffersonthales\.com$ [NC]
 RewriteRule ^ https://www.jeffersonthales.com%{REQUEST_URI} [R=301,L]
 
 # Endereços antigos do WordPress voltam para a página inicial
-RewriteRule ^(wp-admin|wp-content|wp-includes|wp-login\.php|xmlrpc\.php|feed)(/.*)?$ / [R=301,L]
+RewriteRule ^(wp-admin|wp-content|wp-includes|wp-login\.php|xmlrpc\.php|feed)(/.*)?$ https://www.jeffersonthales.com/ [R=301,L]
 
 # Arquivos internos
 RedirectMatch 404 ^/(Dockerfile|docker-compose\.yml|README\.md)$
