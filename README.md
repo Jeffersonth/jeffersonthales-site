@@ -27,7 +27,7 @@ Depois abra http://localhost:4321.
 
 ## Publicar
 
-Envie o **conteúdo** da pasta `site/` para a raiz do domínio (Hostinger: `public_html`; Vercel ou Netlify: arraste a pasta). Não há nada para compilar.
+O site roda na VPS Hostinger como projeto Docker `jeffersonthales-site` (`docker-compose.yml`). Ao iniciar, o contêiner baixa este repositório (`deploy/start.sh`). Para publicar uma mudança: `git push` e reiniciar o projeto no Docker Manager do hPanel.
 
 ## Configurações (topo de `assets/js/main.js`)
 
