@@ -128,3 +128,7 @@ html.js-pending [data-reveal]{visibility:hidden}
 /* Títulos principais (H1 e títulos das seções): 26px no celular, 48px no computador */
 .t-main{font-size:26px!important;line-height:1.15!important}
 @media (min-width:820px){.t-main{font-size:48px!important;line-height:1.1!important}}
+
+/* "O que está incluso" (10 cards): 5 colunas a partir de 1000px, sem sobrar card sozinho */
+@media (min-width:1000px){.grid-inc{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+@media (min-width:1000px) and (max-width:1279.98px){.grid-inc>div>div{padding:20px!important}.grid-inc h3{font-size:16px!important}.grid-inc h3+div{font-size:14px!important}}
