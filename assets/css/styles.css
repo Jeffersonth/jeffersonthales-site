@@ -109,13 +109,11 @@ html.js-pending [data-reveal]{visibility:hidden}
 }
 @media (min-width:560px) and (max-width:999.98px){
   .hero-code{left:calc(50% - 380px)!important}
-  .hero-sites{right:calc(50% - 330px)!important}
-  .hero-speed{right:auto!important;left:calc(50% - 330px)!important}
+  .hero-sites{right:calc(50% - 300px)!important}
 }
-/* Duas colunas com a coluna da foto estreita: só o card +300, abaixo do rosto */
+/* Duas colunas com a coluna da foto estreita: card +300 no canto, fora do rosto */
 @media (min-width:1000px) and (max-width:1279.98px){
-  .hero-sites{top:auto!important;bottom:6%!important;right:auto!important;left:-4%!important}
-  .hero-speed{display:none!important}
+  .hero-sites{right:-4%!important;bottom:5%!important}
 }
 
 /* Grades de 4 itens: 2 colunas no tablet */
@@ -132,3 +130,6 @@ html.js-pending [data-reveal]{visibility:hidden}
 /* "O que está incluso" (10 cards): 5 colunas a partir de 1000px, sem sobrar card sozinho */
 @media (min-width:1000px){.grid-inc{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
 @media (min-width:1000px) and (max-width:1279.98px){.grid-inc>div>div{padding:20px!important}.grid-inc h3{font-size:16px!important}.grid-inc h3+div{font-size:14px!important}}
+
+/* Celular: card +300 compacto no canto inferior direito da foto */
+@media (max-width:559.98px){.hero-sites{right:0!important;bottom:3%!important}.hero-sites>div{transform-origin:100% 100%!important}.hero-sites>div>div{width:150px!important;padding:12px 14px!important}.hero-sites svg{width:120px!important;height:24px!important}}
