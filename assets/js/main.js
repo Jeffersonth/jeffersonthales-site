@@ -455,6 +455,7 @@
   renderPhone(); renderSteps(); renderProc(0); renderPortCount();
   setupReveal();
   document.documentElement.classList.remove('js-pending');
-  measurePort(); measureProc(); onScroll();
+  // Medições pesadas (layout da página inteira) logo após o primeiro quadro, em tarefa separada
+  requestAnimationFrame(function () { setTimeout(function () { measurePort(); measureProc(); onScroll(); }, 0); });
   window.addEventListener('load', function () { measurePort(); measureProc(); onScroll(); });
 })();
