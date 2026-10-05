@@ -22,7 +22,7 @@
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var NAV = ['servicos', 'agentes', 'portfolio', 'cases', 'precos', 'duvidas'];
-  var state = { step: 0, shown: 0, active: '', portIdx: 0, proc: -1, lastY: 0, drawer: false };
+  var state = { step: 0, shown: 0, active: '', portIdx: 0, proc: -1, lastY: 0, drawer: false, glass: null, hidden: null };
 
   // ---------- Revelação ao rolar ----------
   var io;
@@ -131,17 +131,42 @@
 
   // ---------- Portfólio ----------
   var portOuter = $('#port-outer'), portTrack = $('#port-track'), portCount = $('#port-count'), portEmpty = $('#port-empty');
-  var portDist = 0;
+  var portDist = 0, portTop = 0, portNoPin = false, PORT_PAD = 60; // PORT_PAD = espaço acima/abaixo da seção (padding do #port-outer)
+  var portInner = $('.port-inner', portOuter), portShots = $$('.port-shot', portTrack);
+  function setShotHeight(h) {
+    portShots.forEach(function (s) {
+      s.style.height = h + 'px';
+      var img = $('img', s); if (img) img.setAttribute('data-hon', 'translateY(calc(-100% + ' + h + 'px))');
+    });
+  }
   function portItems() { return $$('.port-card', portTrack).filter(function (c) { return c.style.display !== 'none'; }); }
   function renderPortCount() {
     var n = portItems().length;
     portCount.textContent = n ? String(state.portIdx + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0') : '00 / 00';
   }
   function measurePort() {
-    if (isMob() || rm) { portTrack.style.transform = ''; portOuter.style.height = 'auto'; return; }
+    // Desktop: a seção fica presa enquanto os cards deslizam. O bloco inteiro (título, filtros,
+    // prints e nomes) precisa caber na altura da tela; senão os prints encolhem ou o pin é desligado.
+    var vh = window.innerHeight, room = vh - 24; // 12px de folga em cima e embaixo
+    setShotHeight(250);
+    portInner.style.top = '';
+    portOuter.classList.remove('port-nopin');
+    portNoPin = isMob() || rm;
+    if (!portNoPin) {
+      var contentH = portInner.offsetHeight;
+      if (contentH > room) { setShotHeight(Math.max(120, 250 - (contentH - room))); contentH = portInner.offsetHeight; }
+      if (contentH > room) portNoPin = true;
+    }
+    if (portNoPin) {
+      if (!isMob()) portOuter.classList.add('port-nopin');
+      portTrack.style.transform = ''; portOuter.style.height = 'auto'; return;
+    }
     portDist = Math.max(0, portTrack.scrollWidth - portTrack.clientWidth);
-    portOuter.style.height = Math.round(window.innerHeight + portDist) + 'px';
+    portTop = Math.max(12, Math.round((vh - contentH) / 2));
+    portInner.style.top = portTop + 'px';
+    portOuter.style.height = Math.round(contentH + portDist + PORT_PAD * 2) + 'px';
   }
+
   $$('[data-filter]').forEach(function (b) {
     b.addEventListener('click', function () {
       var f = b.getAttribute('data-filter');
@@ -176,7 +201,7 @@
       n.style.color = on ? '#fff' : '#B7B0C2';
       n.style.borderColor = on ? 'transparent' : 'rgba(255,255,255,.14)';
       n.style.boxShadow = on ? '0 0 30px rgba(232,54,143,.55)' : 'none';
-      t.style.opacity = on ? 1 : 0.55;
+      t.style.opacity = on ? 1 : 0.75;
     });
   }
 
@@ -186,19 +211,36 @@
   var pxEls = $$('[data-px]'), stepEls = $$('[data-step]'), navEls = NAV.map(function (id) { return document.getElementById(id); });
   var raf = 0;
 
+  // Posições fixas dos itens do processo (relidas só no resize)
+  var procTops = [];
+  function measureProc() { procTops = $$('[data-proc]', proc).map(function (nd) { return nd.offsetTop; }); }
+
   function onScroll() {
+    // 1) Leituras de layout (todas antes de qualquer escrita, para não forçar recálculo)
     var y = window.scrollY, vh = window.innerHeight, H = document.documentElement.scrollHeight;
+    var mob = isMob();
+    var navRects = navEls.map(function (e) { return e ? e.getBoundingClientRect() : null; });
+    var rs = rm ? null : serv.getBoundingClientRect();
+    var stepTops = mob ? [] : stepEls.map(function (e) { return e.getBoundingClientRect().top; });
+    var rp = (!mob && !portNoPin) ? portOuter.getBoundingClientRect() : null;
+    var rr = proc.getBoundingClientRect();
+    var rc = cta.getBoundingClientRect();
+
+    // 2) Escritas
     progress.style.transform = 'scaleX(' + clamp(y / Math.max(1, H - vh)).toFixed(4) + ')';
 
-    var g = y > 40;
-    header.style.background = g ? 'rgba(11,8,20,.72)' : 'transparent';
-    header.style.backdropFilter = header.style.webkitBackdropFilter = g ? 'blur(16px)' : 'none';
-    header.style.borderBottomColor = g ? 'rgba(255,255,255,.08)' : 'transparent';
-    header.style.transform = (y > state.lastY && y > 320 && !state.drawer) ? 'translateY(-100%)' : 'translateY(0)';
+    var g = y > 40, hide = y > state.lastY && y > 320 && !state.drawer;
+    if (g !== state.glass) {
+      state.glass = g;
+      header.style.background = g ? 'rgba(11,8,20,.72)' : 'transparent';
+      header.style.backdropFilter = header.style.webkitBackdropFilter = g ? 'blur(16px)' : 'none';
+      header.style.borderBottomColor = g ? 'rgba(255,255,255,.08)' : 'transparent';
+    }
+    if (hide !== state.hidden) { state.hidden = hide; header.style.transform = hide ? 'translateY(-100%)' : 'translateY(0)'; }
     state.lastY = y;
 
     if (!rm && y < vh * 1.6) {
-      var f = isMob() ? 0.5 : 1;
+      var f = mob ? 0.5 : 1;
       pxEls.forEach(function (el) {
         var tr = 'translate3d(0,' + (y * +el.getAttribute('data-px') * f).toFixed(1) + 'px,0)';
         if (el.hasAttribute('data-px-sun')) { var p = clamp(y / vh); tr += ' scale(' + (1 + p * 0.25).toFixed(3) + ')'; el.style.opacity = (1 - p * 0.7).toFixed(3); }
@@ -207,36 +249,33 @@
     }
 
     var act = '';
-    navEls.forEach(function (e, i) { if (e) { var r = e.getBoundingClientRect(); if (r.top <= vh * 0.4 && r.bottom > vh * 0.4) act = NAV[i]; } });
+    navRects.forEach(function (r, i) { if (r && r.top <= vh * 0.4 && r.bottom > vh * 0.4) act = NAV[i]; });
     if (act !== state.active) {
       state.active = act;
       $$('[data-ul]').forEach(function (u) { u.style.transform = u.getAttribute('data-ul') === act ? 'scaleX(1)' : 'scaleX(0)'; });
     }
 
-    if (!rm) {
-      var rs = serv.getBoundingClientRect();
-      servCurtain.style.opacity = (1 - Math.min(clamp((vh - rs.top) / (vh * 0.55)), clamp(rs.bottom / (vh * 0.55)))).toFixed(3);
-    }
+    if (rs) servCurtain.style.opacity = (1 - Math.min(clamp((vh - rs.top) / (vh * 0.55)), clamp(rs.bottom / (vh * 0.55)))).toFixed(3);
 
-    if (!isMob()) {
+    if (!mob) {
       var idx = 0;
-      stepEls.forEach(function (e, i) { if (e.getBoundingClientRect().top < vh * 0.55) idx = i; });
+      stepTops.forEach(function (t, i) { if (t < vh * 0.55) idx = i; });
       goStep(idx);
-      if (!rm) {
-        var rp = portOuter.getBoundingClientRect(), scr = rp.height - vh, pp = scr > 0 ? clamp(-rp.top / scr) : 0;
+      if (rp) {
+        var pp = portDist > 0 ? clamp((portTop - PORT_PAD - rp.top) / portDist) : 0;
         portTrack.style.transform = 'translate3d(' + (-(pp * portDist)).toFixed(1) + 'px,0,0)';
         var n = portItems().length, pi = Math.round(pp * Math.max(0, n - 1));
         if (pi !== state.portIdx) { state.portIdx = pi; renderPortCount(); }
       }
     }
 
-    var rr = proc.getBoundingClientRect(), pr = rm ? 1 : clamp((vh * 0.62 - rr.top) / rr.height);
+    var pr = rm ? 1 : clamp((vh * 0.62 - rr.top) / rr.height);
     procFill.style.transform = 'scaleY(' + pr.toFixed(4) + ')';
     var lit = 0;
-    $$('[data-proc]', proc).forEach(function (nd) { if (nd.offsetTop + 10 <= pr * rr.height) lit++; });
+    procTops.forEach(function (t) { if (t + 10 <= pr * rr.height) lit++; });
     if (lit !== state.proc) { state.proc = lit; renderProc(lit); }
 
-    var rc = cta.getBoundingClientRect(), pc = rm ? 1 : clamp((vh - rc.top) / (rc.height * 0.9));
+    var pc = rm ? 1 : clamp((vh - rc.top) / (rc.height * 0.9));
     ctaSun.style.transform = 'translateX(-50%) translateY(' + ((1 - pc) * 45).toFixed(2) + '%) scale(' + (0.85 + 0.15 * pc).toFixed(3) + ')';
 
     var pf = rm ? 1 : clamp(1 - (H - vh - y) / (vh * 0.9));
@@ -244,7 +283,7 @@
   }
   window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; onScroll(); }); }, { passive: true });
   var resizeT;
-  window.addEventListener('resize', function () { clearTimeout(resizeT); resizeT = setTimeout(function () { measurePort(); onScroll(); }, 120); });
+  window.addEventListener('resize', function () { clearTimeout(resizeT); resizeT = setTimeout(function () { measurePort(); measureProc(); onScroll(); }, 120); });
 
   // ---------- Inclinação 3D, brilho e zonas de hover ----------
   var curTilt = null;
@@ -300,7 +339,7 @@
         b.setAttribute('aria-expanded', on);
         o.style.background = on ? '#15101F' : 'transparent';
         $('span', b).style.transform = on ? 'rotate(45deg)' : 'rotate(0deg)';
-        b.parentNode.nextElementSibling.style.gridTemplateRows = on ? '1fr' : '0fr';
+        var reg = b.parentNode.nextElementSibling; reg.style.gridTemplateRows = on ? '1fr' : '0fr'; reg.style.visibility = on ? 'visible' : 'hidden';
       });
     });
   });
@@ -416,6 +455,6 @@
   renderPhone(); renderSteps(); renderProc(0); renderPortCount();
   setupReveal();
   document.documentElement.classList.remove('js-pending');
-  measurePort(); onScroll();
-  window.addEventListener('load', function () { measurePort(); onScroll(); });
+  measurePort(); measureProc(); onScroll();
+  window.addEventListener('load', function () { measurePort(); measureProc(); onScroll(); });
 })();

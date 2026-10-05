@@ -19,11 +19,10 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/img/jefferson-1080.webp" imagesrcset="assets/img/jefferson-640.webp 640w, assets/img/jefferson-1080.webp 1080w" imagesizes="(max-width: 819px) 100vw, 760px">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/sora-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/plus-jakarta-sans-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/jefferson-800.webp" imagesrcset="assets/img/jefferson-640.webp 640w, assets/img/jefferson-800.webp 800w, assets/img/jefferson-1080.webp 1080w" imagesizes="(max-width: 819px) 420px, 620px" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/styles.css?v=20261001b">
 <script>
   // Evita o "piscar" das animações; se o JS falhar, tudo aparece em 2,5s
   setTimeout(function(){document.documentElement.classList.remove('js-pending')},2500);
@@ -89,14 +88,14 @@
 
 <header id="header" style="position:fixed;top:0;left:0;right:0;z-index:80;padding:0 clamp(20px,5vw,100px);border-bottom:1px solid transparent;transition:transform .45s cubic-bezier(.16,1,.3,1),background .3s,border-color .3s;">
   <div style="max-width:1240px;margin:0 auto;height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
-    <a href="#topo" aria-label="Jefferson Thales, início" style="display:flex;align-items:center;gap:12px;color:#F5F3F7;">
-      <span style="width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C 0%,#FF7A3D 25%,#E8368F 65%,#7A3CF0 100%);box-shadow:0 0 24px rgba(232,54,143,.5);flex:none;"></span>
+    <a href="#topo" class="brand" style="display:flex;align-items:center;gap:12px;color:#F5F3F7;">
+      <span style="width:50px;height:50px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C 0%,#FF7A3D 25%,#E8368F 65%,#7A3CF0 100%);box-shadow:0 0 24px rgba(232,54,143,.5);flex:none;"></span>
       <span style="display:flex;flex-direction:column;gap:2px;">
         <span style="font:600 17px/1 Sora,sans-serif;letter-spacing:-.01em;">Jefferson Thales</span>
-        <span style="font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;letter-spacing:.04em;">by Soluna IA</span>
+        <span style="font:500 12px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;letter-spacing:.04em;">by Soluna IA</span>
       </span>
     </a>
-    <div class="dsk" style="display:contents;">
+    <div class="hdr-d" style="display:contents;">
       <nav aria-label="Principal" style="display:flex;align-items:center;gap:30px;">
         <a href="#servicos" style="position:relative;font:500 15px/1 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;padding:8px 0;">Serviços<span data-ul="servicos" style="position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:linear-gradient(90deg,#E8368F,#FF7A3D);transform-origin:0 50%;transition:transform .45s cubic-bezier(.16,1,.3,1);transform:scaleX(0);"></span></a>
         <a href="#agentes" style="position:relative;font:500 15px/1 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;padding:8px 0;">Agentes de IA<span data-ul="agentes" style="position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:linear-gradient(90deg,#E8368F,#FF7A3D);transform-origin:0 50%;transition:transform .45s cubic-bezier(.16,1,.3,1);transform:scaleX(0);"></span></a>
@@ -107,7 +106,7 @@
       </nav>
       <a href="https://wa.me/5511924574553?text=Ol%C3%A1%2C%20Jefferson!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" data-hz="1" class="h-grad-sm" style="height:46px;padding:0 20px;border-radius:14px;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#E8368F,#FF7A3D);color:#fff;font:600 15px/1 'Plus Jakarta Sans',sans-serif;box-shadow:0 10px 30px -12px rgba(232,54,143,.8);transition:transform .25s,box-shadow .25s;">Orçamento grátis<span data-hon="translateX(4px)" style="display:inline-flex;transition:transform .25s;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
     </div>
-    <div class="mob" style="display:flex;align-items:center;gap:8px;">
+    <div class="hdr-m" style="display:flex;align-items:center;gap:8px;">
       <a href="https://wa.me/5511924574553?text=Ol%C3%A1%2C%20Jefferson!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" style="height:44px;padding:0 16px;border-radius:14px;display:inline-flex;align-items:center;background:linear-gradient(90deg,#E8368F,#FF7A3D);color:#fff;font:600 14px/1 'Plus Jakarta Sans',sans-serif;">Orçamento</a>
       <button id="drawer-open" aria-label="Abrir menu" aria-controls="drawer" aria-expanded="false" style="width:44px;height:44px;border-radius:14px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#F5F3F7;display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
     </div>
@@ -132,10 +131,10 @@
 
 <main id="conteudo">
 <section id="topo" aria-label="Apresentação" style="position:relative;overflow:hidden;padding:0 clamp(20px,5vw,100px);">
-  <div style="position:absolute;left:-200px;top:-160px;width:620px;height:620px;border-radius:50%;background:#7A3CF0;opacity:.18;filter:blur(120px);pointer-events:none;"></div>
-  <div style="position:absolute;right:10%;bottom:-200px;width:520px;height:520px;border-radius:50%;background:#E8368F;opacity:.14;filter:blur(130px);pointer-events:none;"></div>
+  <div style="position:absolute;left:-200px;top:-160px;width:868px;height:868px;border-radius:50%;background:radial-gradient(closest-side,rgba(122,60,240,0.18),rgba(122,60,240,0.099) 45%,rgba(122,60,240,0) 100%);pointer-events:none;"></div>
+  <div style="position:absolute;right:10%;bottom:-200px;width:728px;height:728px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,54,143,0.14),rgba(232,54,143,0.077) 45%,rgba(232,54,143,0) 100%);pointer-events:none;"></div>
   <div style="position:relative;max-width:1240px;margin:0 auto;padding-top:120px;display:flex;flex-wrap:wrap-reverse;align-items:stretch;column-gap:40px;">
-    <div style="flex:1 1 700px;min-width:0;position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:32px 0 clamp(56px,7vw,110px);">
+    <div style="flex:1.6 1 480px;min-width:0;position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:32px 0 60px;">
       <div data-reveal="1" data-delay="0" style="font:700 13px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;">Desenvolvedor web em São Paulo · Soluna IA</div>
       <h1 style="margin:0;font-family:Sora,sans-serif;font-weight:600;font-size:clamp(36px,9vw,48px);line-height:1.08;letter-spacing:-.025em;color:#F5F3F7;text-wrap:balance;max-width:620px;">
         <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">Sites</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">e</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">agentes</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">de</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">IA</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">que</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">transformam</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">visitas</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;">em</span></span> <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em;"><span data-reveal="1" data-word="1" data-noop="1" data-from="translateY(110%)" style="display:inline-block;background:linear-gradient(90deg,#E8368F,#FF7A3D,#E8368F);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 8s linear infinite;">clientes.</span></span>
@@ -155,25 +154,25 @@
     </div>
 
     <div style="flex:1 1 380px;min-width:0;position:relative;min-height:clamp(400px,40vw,600px);align-self:flex-end;">
-      <div data-px="0.35" data-px-sun="1" style="position:absolute;right:-6%;top:8%;width:clamp(320px,34vw,500px);aspect-ratio:1;">
+      <div data-px="0.35" data-px-sun="1" class="hero-sun" style="position:absolute;right:-6%;top:8%;width:clamp(320px,34vw,500px);aspect-ratio:1;">
         <div data-reveal="1" data-delay="0" data-from="scale(.6)" style="position:absolute;inset:0;">
           <div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 34% 72%,#FF9A3C 0%,#FF7A3D 24%,#E8368F 62%,#7A3CF0 100%);box-shadow:0 0 140px 20px rgba(232,54,143,.35),0 0 260px 80px rgba(122,60,240,.22);"></div>
           <div style="position:absolute;inset:-38px;border-radius:50%;border:1px solid rgba(255,255,255,.15);animation:spin 40s linear infinite;"><span style="position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:#FF7A3D;box-shadow:0 0 14px #FF7A3D;"></span></div>
         </div>
       </div>
-      <div data-px="0.12" aria-hidden="true" style="position:absolute;left:-4%;top:16%;font:500 12px/1.9 ui-monospace,Menlo,monospace;color:rgba(183,176,194,.38);filter:blur(1.2px);white-space:pre;pointer-events:none;">&lt;section class="hero"&gt;
+      <div data-px="0.12" aria-hidden="true" class="hero-code" style="position:absolute;left:-4%;top:16%;font:500 12px/1.9 ui-monospace,Menlo,monospace;color:rgba(183,176,194,.38);filter:blur(1.2px);white-space:pre;pointer-events:none;">&lt;section class="hero"&gt;
   const lead = await agente.qualificar(msg)
   pagespeed.mobile === 98
   deploy → produção ✓</div>
       <div data-px="0.18" style="position:absolute;inset:0;">
         <div data-reveal="1" data-delay="120" data-from="translateY(70px)" style="position:absolute;bottom:0;left:50%;height:97%;aspect-ratio:1080/1031;transform:translateX(-50%);-webkit-mask-image:radial-gradient(ellipse 52% 72% at 50% 62%,#000 66%,transparent 100%);mask-image:radial-gradient(ellipse 52% 72% at 50% 62%,#000 66%,transparent 100%);">
-          <img src="assets/img/jefferson-1080.webp" srcset="assets/img/jefferson-640.webp 640w, assets/img/jefferson-1080.webp 1080w" sizes="(max-width: 819px) 100vw, 760px" width="1080" height="1031" fetchpriority="high" alt="Jefferson Thales, desenvolvedor web, de braços cruzados e camisa branca" style="display:block;width:100%;height:100%;object-fit:cover;filter:contrast(1.06) saturate(.92) brightness(.96);">
+          <img src="assets/img/jefferson-800.webp" srcset="assets/img/jefferson-640.webp 640w, assets/img/jefferson-800.webp 800w, assets/img/jefferson-1080.webp 1080w" sizes="(max-width: 819px) 420px, 620px" width="1080" height="1031" fetchpriority="high" alt="Jefferson Thales, desenvolvedor web, de braços cruzados e camisa branca" style="display:block;width:100%;height:100%;object-fit:cover;filter:contrast(1.06) saturate(.92) brightness(.96);">
           <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(232,54,143,.55) 0%,rgba(232,54,143,0) 34%);mix-blend-mode:screen;"></div>
           <div style="position:absolute;inset:0;background:linear-gradient(270deg,rgba(255,122,61,.5) 0%,rgba(255,122,61,0) 34%);mix-blend-mode:screen;"></div>
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,8,20,.55) 0%,rgba(11,8,20,0) 30%);"></div>
         </div>
       </div>
-      <div data-px="-0.12" style="position:absolute;right:-2%;top:46%;z-index:4;">
+      <div data-px="-0.12" class="hero-sites" style="position:absolute;right:-2%;top:46%;z-index:4;">
         <div data-reveal="1" data-delay="900" data-from="scale(.8)" style="transform-origin:0 0;">
           <div style="width:220px;padding:18px;border-radius:20px;background:rgba(11,8,20,.5);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 50px -20px rgba(0,0,0,.6);animation:floatY 6s ease-in-out infinite;">
             <div style="font:500 13px/1.3 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">Sites entregues</div>
@@ -184,7 +183,7 @@
         </div>
       </div>
       <div class="dsk" style="display:contents;">
-        <div data-px="-0.08" style="position:absolute;left:0;top:22%;z-index:4;">
+        <div data-px="-0.08" class="hero-chat" style="position:absolute;left:0;top:22%;z-index:4;">
           <div data-reveal="1" data-delay="1000" data-from="scale(.8)" style="transform-origin:100% 100%;">
             <div style="width:258px;padding:14px 16px;border-radius:20px 20px 20px 6px;background:rgba(11,8,20,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 50px -20px rgba(0,0,0,.6);animation:floatY 7s ease-in-out -2s infinite;">
               <div style="display:flex;align-items:center;gap:8px;font:600 12px/1 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;"><span style="width:8px;height:8px;border-radius:50%;background:#3DDC97;box-shadow:0 0 10px #3DDC97;"></span>Agente de IA · online</div>
@@ -192,7 +191,7 @@
             </div>
           </div>
         </div>
-        <div data-px="-0.16" style="position:absolute;right:6%;bottom:8%;z-index:4;">
+        <div data-px="-0.16" class="hero-speed" style="position:absolute;right:6%;bottom:8%;z-index:4;">
           <div data-reveal="1" data-delay="1100" data-from="scale(.8)">
             <div style="display:flex;align-items:center;gap:14px;padding:14px 18px 14px 14px;border-radius:20px;background:rgba(11,8,20,.5);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 50px -20px rgba(0,0,0,.6);animation:floatY 6.5s ease-in-out -4s infinite;">
               <div style="position:relative;width:54px;height:54px;">
@@ -235,7 +234,7 @@
   </div>
 </section>
 
-<section id="servicos" style="position:relative;background:#F4EFE8;color:#14101C;padding:clamp(88px,9.7vw,140px) clamp(20px,5vw,100px);">
+<section id="servicos" style="position:relative;background:#F4EFE8;color:#14101C;padding:60px clamp(20px,5vw,100px);">
   <div id="serv-curtain" style="position:absolute;inset:0;background:#0B0814;opacity:0;pointer-events:none;"></div>
   <div style="position:relative;max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start;">
     <div style="flex:1 1 300px;max-width:420px;display:flex;flex-direction:column;gap:22px;">
@@ -244,7 +243,7 @@
       <p data-reveal="1" style="margin:0;font:400 clamp(16px,1.25vw,18px)/1.6 'Plus Jakarta Sans',sans-serif;color:#4A4357;text-wrap:pretty;">Do primeiro site à automação do atendimento: escolha o que sua empresa precisa agora. Cada projeto é feito sob medida, com design exclusivo, carregamento rápido e estrutura pensada para aparecer no Google e transformar visitas em conversas no WhatsApp.</p>
       <ul data-reveal="1" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;font:500 16px/1.45 'Plus Jakarta Sans',sans-serif;color:#2A2433;"><li style="display:flex;gap:12px;align-items:flex-start;"><span aria-hidden="true" style="flex:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#D61F7C,#F2622A);display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="12" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6L9 17l-5-5"></path></svg></span>Design exclusivo, sem template pronto</li><li style="display:flex;gap:12px;align-items:flex-start;"><span aria-hidden="true" style="flex:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#D61F7C,#F2622A);display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="12" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6L9 17l-5-5"></path></svg></span>SEO e velocidade para aparecer no Google</li><li style="display:flex;gap:12px;align-items:flex-start;"><span aria-hidden="true" style="flex:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#D61F7C,#F2622A);display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="12" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6L9 17l-5-5"></path></svg></span>WhatsApp e agente de IA integrados ao site</li><li style="display:flex;gap:12px;align-items:flex-start;"><span aria-hidden="true" style="flex:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#D61F7C,#F2622A);display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="12" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6L9 17l-5-5"></path></svg></span>Treinamento e suporte depois da entrega</li></ul>
       <div data-reveal="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:18px 0;border-top:1px solid rgba(20,16,28,.12);border-bottom:1px solid rgba(20,16,28,.12);"><div><div style="font:700 34px/1 Sora,sans-serif;letter-spacing:-.03em;color:#14101C;">+<span data-count="300">300</span></div><div style="font:500 14px/1.4 'Plus Jakarta Sans',sans-serif;color:#4A4357;margin-top:6px;">sites entregues</div></div><div><div style="font:700 34px/1 Sora,sans-serif;letter-spacing:-.03em;color:#14101C;">15 a 20</div><div style="font:500 14px/1.4 'Plus Jakarta Sans',sans-serif;color:#4A4357;margin-top:6px;">dias para um site institucional no ar</div></div></div>
-      <a href="https://wa.me/5511924574553?text=Ol%C3%A1%2C%20Jefferson!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" data-hz="1" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;font:700 14px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#14101C;padding:10px 0;border-bottom:2px solid #14101C;">Falar sobre meu projeto<span data-hon="translateX(5px)" style="display:inline-flex;transition:transform .25s;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+      <a href="https://wa.me/5511924574553?text=Ol%C3%A1%2C%20Jefferson!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" data-hz="1" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;font:700 14px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#14101C;padding:13px 0;border-bottom:2px solid #14101C;">Falar sobre meu projeto<span data-hon="translateX(5px)" style="display:inline-flex;transition:transform .25s;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
     </div>
     <div style="flex:2.4 1 560px;min-width:0;display:flex;flex-wrap:wrap;gap:16px;">
       <a href="#agentes" data-hz="1" data-reveal="1" data-noop="1" data-clip-from="inset(100% 0 0 0 round 24px)" style="flex:1.25 1 320px;position:relative;display:block;min-height:560px;border-radius:24px;overflow:hidden;color:#fff;background:#140E22;clip-path:inset(0 0 0 0 round 24px);">
@@ -299,7 +298,7 @@
           <div style="position:absolute;left:24px;right:24px;bottom:22px;"><div style="font:600 13px/1 Sora,sans-serif;letter-spacing:.1em;color:#FFE1D1;">03</div><h3 style="margin:8px 0 0;font:600 22px/1.2 Sora,sans-serif;">Loja virtual</h3><div style="font:400 15px/1.45 'Plus Jakarta Sans',sans-serif;color:#FFF2EC;margin-top:4px;">Venda online com Pix, cartão e frete automático.</div></div>
         </a>
       </div>
-      <a href="#precos" data-hz="1" data-reveal="1" data-noop="1" data-clip-from="inset(100% 0 0 0 round 24px)" style="flex:1 1 100%;position:relative;display:block;min-height:240px;border-radius:24px;overflow:hidden;color:#fff;background:#120D1D;clip-path:inset(0 0 0 0 round 24px);">
+      <a href="#precos" data-hz="1" data-reveal="1" data-noop="1" data-clip-from="inset(100% 0 0 0 round 24px)" class="card-din" style="flex:1 1 100%;position:relative;display:block;min-height:240px;border-radius:24px;overflow:hidden;color:#fff;background:#120D1D;clip-path:inset(0 0 0 0 round 24px);">
         <div data-reveal="1" data-noop="1" data-from="scale(1.15)" style="position:absolute;inset:0;">
           <div data-hon="scale(1.06)" style="position:absolute;inset:0;transition:transform .9s cubic-bezier(.16,1,.3,1);background:radial-gradient(circle at 85% 30%,rgba(122,60,240,.6),transparent 50%),radial-gradient(circle at 55% 110%,rgba(232,54,143,.4),transparent 45%),#120D1D;">
             <div aria-hidden="true" style="position:absolute;top:28px;right:28px;width:min(56%,520px);display:flex;flex-direction:column;gap:10px;">
@@ -320,8 +319,8 @@
   </div>
 </section>
 
-<section id="agentes" style="position:relative;padding:clamp(88px,9.7vw,140px) clamp(20px,5vw,100px);overflow:clip;">
-  <div style="position:absolute;right:-180px;top:120px;width:560px;height:560px;border-radius:50%;background:#7A3CF0;opacity:.18;filter:blur(130px);pointer-events:none;"></div>
+<section id="agentes" style="position:relative;padding:60px clamp(20px,5vw,100px) 0;overflow:clip;">
+  <div style="position:absolute;right:-180px;top:120px;width:784px;height:784px;border-radius:50%;background:radial-gradient(closest-side,rgba(122,60,240,0.18),rgba(122,60,240,0.099) 45%,rgba(122,60,240,0) 100%);pointer-events:none;"></div>
   <div style="position:relative;max-width:1240px;margin:0 auto;">
     <div style="display:flex;flex-direction:column;gap:22px;max-width:760px;">
       <div data-reveal="1" style="font:700 13px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;">Agentes de IA</div>
@@ -354,7 +353,7 @@
               <div data-pm="3" style="align-self:center;max-width:90%;text-align:center;padding:6px 10px;border-radius:8px;background:rgba(61,220,151,.12);color:#9BF2C8;font:600 11.5px/1.35 'Plus Jakarta Sans',sans-serif;animation:msgIn .45s cubic-bezier(.16,1,.3,1) both;">Conversa transferida para Bia · atendimento humano</div>
               <div id="phone-typing" style="display:none;align-self:flex-start;gap:4px;padding:12px 14px;border-radius:14px 14px 14px 4px;background:#1E1730;animation:msgIn .3s ease both;"><span style="width:6px;height:6px;border-radius:50%;background:#B7B0C2;animation:dot 1.2s infinite;"></span><span style="width:6px;height:6px;border-radius:50%;background:#B7B0C2;animation:dot 1.2s .15s infinite;"></span><span style="width:6px;height:6px;border-radius:50%;background:#B7B0C2;animation:dot 1.2s .3s infinite;"></span></div>
             </div>
-            <div style="flex:none;display:flex;gap:8px;padding:10px 12px 18px;background:#0D0A15;"><div style="flex:1;height:40px;border-radius:20px;background:#1E1730;display:flex;align-items:center;padding:0 16px;font:500 13px/1 'Plus Jakarta Sans',sans-serif;color:#7D7590;">Mensagem</div><span style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"></path></svg></span></div>
+            <div style="flex:none;display:flex;gap:8px;padding:10px 12px 18px;background:#0D0A15;"><div style="flex:1;height:40px;border-radius:20px;background:#1E1730;display:flex;align-items:center;padding:0 16px;font:500 13px/1 'Plus Jakarta Sans',sans-serif;color:#A39BB4;">Mensagem</div><span style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"></path></svg></span></div>
           </div>
         </div>
       </div>
@@ -403,12 +402,12 @@
           <p data-reveal="1" style="margin:0;font:500 15px/1.6 'Plus Jakarta Sans',sans-serif;color:#8E869C;">Quando você pedir um orçamento, ela resume a conversa e te leva para o WhatsApp do Jefferson.</p>
         </div>
         <div data-reveal="1" data-from="translateY(40px) scale(.97)" style="flex:1.3 1 520px;min-width:0;position:relative;">
-          <div style="position:absolute;inset:8% 6%;border-radius:50%;background:#7A3CF0;opacity:.5;filter:blur(90px);"></div>
+          <div style="position:absolute;inset:8% 6%;border-radius:50%;background:radial-gradient(closest-side,rgba(122,60,240,0.5),rgba(122,60,240,0.275) 45%,rgba(122,60,240,0) 100%);"></div>
           <div style="position:relative;border-radius:26px;padding:1.5px;overflow:hidden;box-shadow:0 40px 100px -40px rgba(0,0,0,.8);">
             <div style="position:absolute;inset:-50%;background:conic-gradient(from 0deg,#7A3CF0,#E8368F,#FF7A3D,rgba(122,60,240,.15),#7A3CF0);animation:spin 8s linear infinite;"></div>
             <div data-luna-chat style="position:relative;border-radius:24.5px;background:#120D1D;height:580px;display:flex;flex-direction:column;overflow:hidden;">
               <div style="flex:none;display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08);">
-                <div style="position:relative;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C,#E8368F 65%,#7A3CF0);display:flex;align-items:center;justify-content:center;font:700 18px/1 Sora,sans-serif;color:#fff;">L<span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#3DDC97;border:2px solid #120D1D;"></span></div>
+                <div style="position:relative;width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C,#E8368F 65%,#7A3CF0);display:flex;align-items:center;justify-content:center;font:700 18px/1 Sora,sans-serif;color:#fff;">L<span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#3DDC97;border:2px solid #120D1D;"></span></div>
                 <div style="flex:1;min-width:0;"><div style="font:600 16px/1.2 Sora,sans-serif;">Luna · Soluna IA</div><div style="display:flex;align-items:center;gap:6px;font:500 13px/1.2 'Plus Jakarta Sans',sans-serif;color:#3DDC97;margin-top:4px;"><span style="width:7px;height:7px;border-radius:50%;background:#3DDC97;"></span>online agora</div></div>
                 <span style="height:28px;padding:0 12px;border-radius:999px;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.16);font:600 12px/1 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">Agente real</span>
               </div>
@@ -430,7 +429,7 @@
       <div class="mob" style="position:relative;border-radius:24px;padding:1.5px;overflow:hidden;">
         <div style="position:absolute;inset:-50%;background:conic-gradient(from 0deg,#7A3CF0,#E8368F,#FF7A3D,rgba(122,60,240,.15),#7A3CF0);animation:spin 8s linear infinite;"></div>
         <div style="position:relative;border-radius:23px;background:#120D1D;padding:24px;display:flex;flex-direction:column;gap:16px;">
-          <div style="display:flex;align-items:center;gap:12px;"><div style="position:relative;width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C,#E8368F 65%,#7A3CF0);display:flex;align-items:center;justify-content:center;font:700 19px/1 Sora,sans-serif;color:#fff;">L<span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#3DDC97;border:2px solid #120D1D;"></span></div><div><div style="font:600 16px/1.2 Sora,sans-serif;">Luna · Soluna IA</div><div style="font:500 13px/1.2 'Plus Jakarta Sans',sans-serif;color:#3DDC97;margin-top:4px;">online agora</div></div></div>
+          <div style="display:flex;align-items:center;gap:12px;"><div style="position:relative;width:67px;height:67px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C,#E8368F 65%,#7A3CF0);display:flex;align-items:center;justify-content:center;font:700 19px/1 Sora,sans-serif;color:#fff;">L<span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#3DDC97;border:2px solid #120D1D;"></span></div><div><div style="font:600 16px/1.2 Sora,sans-serif;">Luna · Soluna IA</div><div style="font:500 13px/1.2 'Plus Jakarta Sans',sans-serif;color:#3DDC97;margin-top:4px;">online agora</div></div></div>
           <h3 style="margin:0;font:600 26px/1.15 Sora,sans-serif;letter-spacing:-.02em;">Teste agora: converse com a Luna</h3>
           <p style="margin:0;font:400 16px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">Esta é uma agente de IA real, criada pela Soluna. Pergunte o que quiser e veja como ela atenderia seus clientes.</p>
           <button type="button" data-luna-open style="height:56px;border:0;border-radius:14px;background:linear-gradient(90deg,#E8368F,#FF7A3D);color:#fff;font:600 16px/1 'Plus Jakarta Sans',sans-serif;cursor:pointer;">Conversar com a Luna</button>
@@ -440,7 +439,7 @@
 
     <div style="margin-top:clamp(64px,7vw,96px);display:flex;flex-direction:column;gap:20px;">
       <h3 data-reveal="1" style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.2 Sora,sans-serif;">Um agente para cada tipo de negócio</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+      <div class="grid4" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
         <div data-reveal="1">
           <div data-tilt="1" data-flat="1" class="h-seg" style="position:relative;height:100%;overflow:hidden;border-radius:24px;background:#15101F;border:1px solid rgba(255,255,255,.08);padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .3s;">
             <div data-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(232,54,143,.2),transparent 60%);"></div>
@@ -483,12 +482,12 @@
 </section>
 
 <section id="portfolio" style="position:relative;">
-  <div id="port-outer" style="position:relative;">
-    <div class="port-inner" style="overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,3vw,40px);padding:clamp(88px,8vw,110px) 0 clamp(40px,4vw,56px);">
+  <div id="port-outer" style="position:relative;padding:60px 0;">
+    <div class="port-inner" style="overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(20px,2.6vw,32px);padding:0;">
       <div style="padding:0 clamp(20px,5vw,100px);">
         <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:24px;">
           <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;">
-            <div style="display:flex;flex-direction:column;gap:18px;max-width:640px;">
+            <div style="display:flex;flex-direction:column;gap:14px;max-width:900px;">
               <div data-reveal="1" style="font:700 13px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;">Portfólio</div>
               <div style="overflow:hidden;padding-bottom:6px;"><h2 data-reveal="1" data-noop="1" data-from="translateY(105%)" style="margin:0;font:600 clamp(32px,3.9vw,56px)/1.1 Sora,sans-serif;letter-spacing:-.025em;">Projetos que geram <span style="background:linear-gradient(90deg,#E8368F,#FF7A3D);-webkit-background-clip:text;background-clip:text;color:transparent;">resultado</span></h2></div>
               <p data-reveal="1" style="margin:0;font:400 clamp(16px,1.25vw,18px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">Alguns dos mais de 300 sites e plataformas que desenvolvi para empresas de diferentes segmentos.</p>
@@ -512,7 +511,7 @@
         <a href="https://agrofight.com.br/" target="_blank" rel="noopener" data-cats="din" data-hz="1" class="port-card" style="scroll-snap-align:start;scroll-margin-left:20px;display:flex;flex-direction:column;gap:16px;color:#F5F3F7;">
           <div class="port-frame" style="border-radius:20px;overflow:hidden;background:#15101F;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);">
             <div style="height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1E1730;"><span style="width:9px;height:9px;border-radius:50%;background:#E8368F;"></span><span style="width:9px;height:9px;border-radius:50%;background:#FF7A3D;"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);"></span><span style="flex:1;margin:0 10px;height:20px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">agrofight.com.br</span></div>
-            <div style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/agrofight.webp" width="742" height="2545" loading="lazy" decoding="async" alt="Página inicial da plataforma de cursos Academia Agrofight" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
+            <div class="port-shot" style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/agrofight.webp" width="742" height="2545" loading="lazy" decoding="async" alt="Página inicial da plataforma de cursos Academia Agrofight" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><h3 style="margin:0;font:600 22px/1.2 Sora,sans-serif;">Agrofight</h3><span style="display:inline-flex;align-items:center;gap:6px;font:600 14px/1 'Plus Jakarta Sans',sans-serif;color:#FF9A6B;white-space:nowrap;">Ver site<span data-hon="translate(3px,-3px)" style="display:inline-flex;transition:transform .25s;"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M7 17L17 7M8 7h9v9"></path></svg></span></span></div>
@@ -523,7 +522,7 @@
         <a href="https://otimizereparos.com.br/" target="_blank" rel="noopener" data-cats="inst" data-hz="1" class="port-card" style="scroll-snap-align:start;scroll-margin-left:20px;display:flex;flex-direction:column;gap:16px;color:#F5F3F7;">
           <div class="port-frame" style="border-radius:20px;overflow:hidden;background:#15101F;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);">
             <div style="height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1E1730;"><span style="width:9px;height:9px;border-radius:50%;background:#E8368F;"></span><span style="width:9px;height:9px;border-radius:50%;background:#FF7A3D;"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);"></span><span style="flex:1;margin:0 10px;height:20px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">otimizereparos.com.br</span></div>
-            <div style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/otimize-reparos.webp" width="487" height="2550" loading="lazy" decoding="async" alt="Página inicial da Otimize Reparos e Manutenções" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
+            <div class="port-shot" style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/otimize-reparos.webp" width="487" height="2550" loading="lazy" decoding="async" alt="Página inicial da Otimize Reparos e Manutenções" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><h3 style="margin:0;font:600 22px/1.2 Sora,sans-serif;">Otimize Reparos</h3><span style="display:inline-flex;align-items:center;gap:6px;font:600 14px/1 'Plus Jakarta Sans',sans-serif;color:#FF9A6B;white-space:nowrap;">Ver site<span data-hon="translate(3px,-3px)" style="display:inline-flex;transition:transform .25s;"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M7 17L17 7M8 7h9v9"></path></svg></span></span></div>
@@ -534,7 +533,7 @@
         <a href="https://smartimobi.com.br/" target="_blank" rel="noopener" data-cats="din" data-hz="1" class="port-card" style="scroll-snap-align:start;scroll-margin-left:20px;display:flex;flex-direction:column;gap:16px;color:#F5F3F7;">
           <div class="port-frame" style="border-radius:20px;overflow:hidden;background:#15101F;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);">
             <div style="height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1E1730;"><span style="width:9px;height:9px;border-radius:50%;background:#E8368F;"></span><span style="width:9px;height:9px;border-radius:50%;background:#FF7A3D;"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);"></span><span style="flex:1;margin:0 10px;height:20px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">smartimobi.com.br</span></div>
-            <div style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/smartimobi.webp" width="414" height="2551" loading="lazy" decoding="async" alt="Página inicial da imobiliária Smart Imobi" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
+            <div class="port-shot" style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/smartimobi.webp" width="414" height="2551" loading="lazy" decoding="async" alt="Página inicial da imobiliária Smart Imobi" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><h3 style="margin:0;font:600 22px/1.2 Sora,sans-serif;">SmartImobi</h3><span style="display:inline-flex;align-items:center;gap:6px;font:600 14px/1 'Plus Jakarta Sans',sans-serif;color:#FF9A6B;white-space:nowrap;">Ver site<span data-hon="translate(3px,-3px)" style="display:inline-flex;transition:transform .25s;"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M7 17L17 7M8 7h9v9"></path></svg></span></span></div>
@@ -545,7 +544,7 @@
         <article data-cats="inst" data-hz="1" class="port-card" style="scroll-snap-align:start;scroll-margin-left:20px;display:flex;flex-direction:column;gap:16px;color:#F5F3F7;">
           <div class="port-frame" style="border-radius:20px;overflow:hidden;background:#15101F;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);">
             <div style="height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1E1730;"><span style="width:9px;height:9px;border-radius:50%;background:#E8368F;"></span><span style="width:9px;height:9px;border-radius:50%;background:#FF7A3D;"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);"></span><span style="flex:1;margin:0 10px;height:20px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;"></span></div>
-            <div style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/clinica-floreser.webp" width="467" height="2550" loading="lazy" decoding="async" alt="Página inicial da Clínica Floreser" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
+            <div class="port-shot" style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/clinica-floreser.webp" width="467" height="2550" loading="lazy" decoding="async" alt="Página inicial da Clínica Floreser" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><h3 style="margin:0;font:600 22px/1.2 Sora,sans-serif;">Clínica Floreser</h3></div>
@@ -556,7 +555,7 @@
         <a href="https://brightonpro.com/" target="_blank" rel="noopener" data-cats="inst" data-hz="1" class="port-card" style="scroll-snap-align:start;scroll-margin-left:20px;display:flex;flex-direction:column;gap:16px;color:#F5F3F7;">
           <div class="port-frame" style="border-radius:20px;overflow:hidden;background:#15101F;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);">
             <div style="height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1E1730;"><span style="width:9px;height:9px;border-radius:50%;background:#E8368F;"></span><span style="width:9px;height:9px;border-radius:50%;background:#FF7A3D;"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);"></span><span style="flex:1;margin:0 10px;height:20px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">brightonpro.com</span></div>
-            <div style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/brighton-pro.webp" width="527" height="2549" loading="lazy" decoding="async" alt="Página inicial da BrightOn &amp; Co, empresa de limpeza comercial" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
+            <div class="port-shot" style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/brighton-pro.webp" width="527" height="2549" loading="lazy" decoding="async" alt="Página inicial da BrightOn &amp; Co, empresa de limpeza comercial" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><h3 style="margin:0;font:600 22px/1.2 Sora,sans-serif;">BrightOn &amp; Co</h3><span style="display:inline-flex;align-items:center;gap:6px;font:600 14px/1 'Plus Jakarta Sans',sans-serif;color:#FF9A6B;white-space:nowrap;">Ver site<span data-hon="translate(3px,-3px)" style="display:inline-flex;transition:transform .25s;"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M7 17L17 7M8 7h9v9"></path></svg></span></span></div>
@@ -567,7 +566,7 @@
         <article data-cats="din" data-hz="1" class="port-card" style="scroll-snap-align:start;scroll-margin-left:20px;display:flex;flex-direction:column;gap:16px;color:#F5F3F7;">
           <div class="port-frame" style="border-radius:20px;overflow:hidden;background:#15101F;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);">
             <div style="height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1E1730;"><span style="width:9px;height:9px;border-radius:50%;background:#E8368F;"></span><span style="width:9px;height:9px;border-radius:50%;background:#FF7A3D;"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);"></span><span style="flex:1;margin:0 10px;height:20px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;"></span></div>
-            <div style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/xdn-travel.webp" width="469" height="2550" loading="lazy" decoding="async" alt="Página inicial da agência de viagens XDN Travel" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
+            <div class="port-shot" style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/xdn-travel.webp" width="469" height="2550" loading="lazy" decoding="async" alt="Página inicial da agência de viagens XDN Travel" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><h3 style="margin:0;font:600 22px/1.2 Sora,sans-serif;">XDN Travel</h3></div>
@@ -578,7 +577,7 @@
         <article data-cats="inst" data-hz="1" class="port-card" style="scroll-snap-align:start;scroll-margin-left:20px;display:flex;flex-direction:column;gap:16px;color:#F5F3F7;">
           <div class="port-frame" style="border-radius:20px;overflow:hidden;background:#15101F;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);">
             <div style="height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1E1730;"><span style="width:9px;height:9px;border-radius:50%;background:#E8368F;"></span><span style="width:9px;height:9px;border-radius:50%;background:#FF7A3D;"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);"></span><span style="flex:1;margin:0 10px;height:20px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;"></span></div>
-            <div style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/kalango.webp" width="425" height="2551" loading="lazy" decoding="async" alt="Página inicial da Kalango, equipamentos para audiovisual" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
+            <div class="port-shot" style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/kalango.webp" width="425" height="2551" loading="lazy" decoding="async" alt="Página inicial da Kalango, equipamentos para audiovisual" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><h3 style="margin:0;font:600 22px/1.2 Sora,sans-serif;">Kalango</h3></div>
@@ -589,7 +588,7 @@
         <a href="https://pinkloungelingerie.com.br/" target="_blank" rel="noopener" data-cats="loja" data-hz="1" class="port-card" style="scroll-snap-align:start;scroll-margin-left:20px;display:flex;flex-direction:column;gap:16px;color:#F5F3F7;">
           <div class="port-frame" style="border-radius:20px;overflow:hidden;background:#15101F;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1);">
             <div style="height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1E1730;"><span style="width:9px;height:9px;border-radius:50%;background:#E8368F;"></span><span style="width:9px;height:9px;border-radius:50%;background:#FF7A3D;"></span><span style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);"></span><span style="flex:1;margin:0 10px;height:20px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">pinkloungelingerie.com.br</span></div>
-            <div style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/pink-lounge.webp" width="394" height="2552" loading="lazy" decoding="async" alt="Página inicial da loja virtual Pink Lounge Lingerie" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
+            <div class="port-shot" style="height:250px;overflow:hidden;position:relative;background:#fff;"><img data-hon="translateY(calc(-100% + 250px))" src="assets/img/portfolio/pink-lounge.webp" width="394" height="2552" loading="lazy" decoding="async" alt="Página inicial da loja virtual Pink Lounge Lingerie" style="display:block;width:100%;height:auto;transition:transform 5s cubic-bezier(.65,0,.35,1);"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><h3 style="margin:0;font:600 22px/1.2 Sora,sans-serif;">Pink Lounge Lingerie</h3><span style="display:inline-flex;align-items:center;gap:6px;font:600 14px/1 'Plus Jakarta Sans',sans-serif;color:#FF9A6B;white-space:nowrap;">Ver site<span data-hon="translate(3px,-3px)" style="display:inline-flex;transition:transform .25s;"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M7 17L17 7M8 7h9v9"></path></svg></span></span></div>
@@ -603,7 +602,7 @@
   </div>
 </section>
 
-<section id="cases" style="position:relative;padding:clamp(88px,9.7vw,140px) clamp(20px,5vw,100px);">
+<section id="cases" style="position:relative;padding:0 clamp(20px,5vw,100px) 60px;">
   <!-- ⚠ CASES: números e frases são ILUSTRATIVOS (vieram do design). Substitua pelos reais, com autorização dos clientes, antes de publicar. -->
   <div style="max-width:1240px;margin:0 auto;">
     <div style="display:flex;flex-direction:column;gap:18px;max-width:760px;">
@@ -670,7 +669,7 @@
   </div>
 </section>
 
-<section aria-labelledby="proc-h" style="position:relative;padding:clamp(40px,5vw,80px) clamp(20px,5vw,100px) clamp(88px,9.7vw,140px);">
+<section aria-labelledby="proc-h" style="position:relative;padding:0 clamp(20px,5vw,100px) 60px;">
   <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px);align-items:flex-start;">
     <div class="proc-title" style="flex:1 1 340px;display:flex;flex-direction:column;gap:20px;">
       <div data-reveal="1" style="font:700 13px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;">Processo</div>
@@ -683,35 +682,35 @@
       <div id="proc-fill" aria-hidden="true" style="position:absolute;left:27px;top:28px;bottom:84px;width:2px;background:linear-gradient(180deg,#E8368F,#FF7A3D);transform-origin:50% 0;transform:scaleY(0);box-shadow:0 0 12px rgba(232,54,143,.6);"></div>
       <div role="listitem" data-proc="1" style="display:flex;gap:24px;padding-bottom:clamp(36px,4vw,56px);">
         <span data-proc-n style="position:relative;z-index:1;flex:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#15101F;border:1px solid rgba(255,255,255,.14);color:#B7B0C2;box-shadow:none;font:700 16px/1 Sora,sans-serif;transition:box-shadow .5s,color .5s;">01</span>
-        <div data-proc-t style="padding-top:12px;opacity:.55;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Orçamento gratuito pelo WhatsApp</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Você conta o que precisa e recebe uma estimativa sem compromisso.</div></div>
+        <div data-proc-t style="padding-top:12px;opacity:.75;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Orçamento gratuito pelo WhatsApp</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Você conta o que precisa e recebe uma estimativa sem compromisso.</div></div>
       </div>
       <div role="listitem" data-proc="1" style="display:flex;gap:24px;padding-bottom:clamp(36px,4vw,56px);">
         <span data-proc-n style="position:relative;z-index:1;flex:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#15101F;border:1px solid rgba(255,255,255,.14);color:#B7B0C2;box-shadow:none;font:700 16px/1 Sora,sans-serif;transition:box-shadow .5s,color .5s;">02</span>
-        <div data-proc-t style="padding-top:12px;opacity:.55;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Proposta e planejamento</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Escopo, prazo e investimento definidos por escrito.</div></div>
+        <div data-proc-t style="padding-top:12px;opacity:.75;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Proposta e planejamento</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Escopo, prazo e investimento definidos por escrito.</div></div>
       </div>
       <div role="listitem" data-proc="1" style="display:flex;gap:24px;padding-bottom:clamp(36px,4vw,56px);">
         <span data-proc-n style="position:relative;z-index:1;flex:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#15101F;border:1px solid rgba(255,255,255,.14);color:#B7B0C2;box-shadow:none;font:700 16px/1 Sora,sans-serif;transition:box-shadow .5s,color .5s;">03</span>
-        <div data-proc-t style="padding-top:12px;opacity:.55;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Design e desenvolvimento</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Layout exclusivo, com a sua aprovação antes de seguir.</div></div>
+        <div data-proc-t style="padding-top:12px;opacity:.75;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Design e desenvolvimento</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Layout exclusivo, com a sua aprovação antes de seguir.</div></div>
       </div>
       <div role="listitem" data-proc="1" style="display:flex;gap:24px;padding-bottom:clamp(36px,4vw,56px);">
         <span data-proc-n style="position:relative;z-index:1;flex:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#15101F;border:1px solid rgba(255,255,255,.14);color:#B7B0C2;box-shadow:none;font:700 16px/1 Sora,sans-serif;transition:box-shadow .5s,color .5s;">04</span>
-        <div data-proc-t style="padding-top:12px;opacity:.55;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Revisão, testes de velocidade e SEO</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Testes em celular, tablet e computador, nota alta no PageSpeed.</div></div>
+        <div data-proc-t style="padding-top:12px;opacity:.75;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Revisão, testes de velocidade e SEO</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Testes em celular, tablet e computador, nota alta no PageSpeed.</div></div>
       </div>
       <div role="listitem" data-proc="1" style="display:flex;gap:24px;padding-bottom:clamp(36px,4vw,56px);">
         <span data-proc-n style="position:relative;z-index:1;flex:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#15101F;border:1px solid rgba(255,255,255,.14);color:#B7B0C2;box-shadow:none;font:700 16px/1 Sora,sans-serif;transition:box-shadow .5s,color .5s;">05</span>
-        <div data-proc-t style="padding-top:12px;opacity:.55;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Entrega, treinamento e suporte</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Site no ar, treinamento para atualizar e 30 dias de suporte.</div></div>
+        <div data-proc-t style="padding-top:12px;opacity:.75;transition:opacity .5s;"><h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.25 Sora,sans-serif;">Entrega, treinamento e suporte</h3><div style="font:400 clamp(16px,1.2vw,17px)/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;margin-top:6px;">Site no ar, treinamento para atualizar e 30 dias de suporte.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section aria-labelledby="inc-h" style="position:relative;padding:0 clamp(20px,5vw,100px) clamp(88px,9.7vw,140px);">
+<section aria-labelledby="inc-h" style="position:relative;padding:0 clamp(20px,5vw,100px) 60px;">
   <div style="max-width:1240px;margin:0 auto;">
     <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;">
       <div data-reveal="1" style="font:700 13px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;">O que está incluso</div>
       <div style="overflow:hidden;padding-bottom:6px;"><h2 id="inc-h" data-reveal="1" data-noop="1" data-from="translateY(105%)" style="margin:0;font:600 clamp(32px,3.9vw,56px)/1.1 Sora,sans-serif;letter-spacing:-.025em;text-wrap:balance;">Tudo o que você recebe ao contratar</h2></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:clamp(36px,4vw,56px);">
+    <div class="grid4" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:clamp(36px,4vw,56px);">
       <div data-reveal="1">
         <div data-tilt="1" data-flat="1" style="position:relative;height:100%;overflow:hidden;border-radius:24px;background:#15101F;border:1px solid rgba(255,255,255,.08);padding:26px;display:flex;flex-direction:column;gap:14px;">
           <div data-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(232,54,143,.2),transparent 60%);"></div>
@@ -780,8 +779,8 @@
   </div>
 </section>
 
-<section id="precos" style="position:relative;overflow:clip;padding:clamp(88px,9.7vw,140px) clamp(20px,5vw,100px);">
-  <div style="position:absolute;left:50%;top:30%;width:700px;height:500px;transform:translateX(-50%);border-radius:50%;background:#E8368F;opacity:.12;filter:blur(140px);pointer-events:none;"></div>
+<section id="precos" style="position:relative;overflow:clip;padding:0 clamp(20px,5vw,100px) 60px;">
+  <div style="position:absolute;left:50%;top:30%;width:980px;height:700px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(232,54,143,0.12),rgba(232,54,143,0.066) 45%,rgba(232,54,143,0) 100%);pointer-events:none;"></div>
   <div style="position:relative;max-width:1240px;margin:0 auto;">
     <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:760px;margin:0 auto;">
       <div data-reveal="1" style="font:700 13px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;">Investimento</div>
@@ -833,10 +832,10 @@
   </div>
 </section>
 
-<section aria-labelledby="dep-h" hidden style="position:relative;padding:0 clamp(20px,5vw,100px) clamp(88px,9.7vw,140px);overflow:hidden;">
+<section aria-labelledby="dep-h" hidden style="position:relative;padding:0 clamp(20px,5vw,100px) 60px;overflow:hidden;">
   <!-- DEPOIMENTOS: seção escondida (atributo hidden) até existirem depoimentos reais. Para exibir: troque os textos e nomes abaixo pelos reais e remova "hidden". -->
-  <div style="position:absolute;left:10%;top:30%;width:520px;height:420px;border-radius:50%;background:#7A3CF0;opacity:.22;filter:blur(120px);pointer-events:none;"></div>
-  <div style="position:absolute;right:8%;bottom:0;width:420px;height:360px;border-radius:50%;background:#FF7A3D;opacity:.14;filter:blur(120px);pointer-events:none;"></div>
+  <div style="position:absolute;left:10%;top:30%;width:728px;height:588px;border-radius:50%;background:radial-gradient(closest-side,rgba(122,60,240,0.22),rgba(122,60,240,0.121) 45%,rgba(122,60,240,0) 100%);pointer-events:none;"></div>
+  <div style="position:absolute;right:8%;bottom:0;width:588px;height:504px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,122,61,0.14),rgba(255,122,61,0.077) 45%,rgba(255,122,61,0) 100%);pointer-events:none;"></div>
   <div style="position:relative;max-width:1240px;margin:0 auto;">
     <div style="display:flex;flex-direction:column;gap:18px;">
       <div data-reveal="1" style="font:700 13px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;">Depoimentos</div>
@@ -877,11 +876,11 @@
   </div>
 </section>
 
-<section id="sobre" aria-labelledby="sobre-h" style="position:relative;padding:0 clamp(20px,5vw,100px) clamp(88px,9.7vw,140px);">
+<section id="sobre" aria-labelledby="sobre-h" style="position:relative;padding:0 clamp(20px,5vw,100px) 60px;">
   <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px);align-items:center;">
     <div data-reveal="1" style="flex:1 1 380px;max-width:520px;min-width:0;position:relative;height:clamp(460px,44vw,620px);border-radius:24px;overflow:hidden;background:#15101F;">
-      <img src="assets/img/jefferson-1080.webp" width="1080" height="1031" loading="lazy" decoding="async" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.05) brightness(.9);">
-      <img data-reveal="1" data-noop="1" data-from="scale(1)" data-clip-from="inset(100% 0 0 0)" src="assets/img/jefferson-1080.webp" width="1080" height="1031" loading="lazy" decoding="async" alt="Jefferson Thales, fundador da Soluna IA" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;clip-path:inset(0 0 0 0);">
+      <img src="assets/img/jefferson-800.webp" srcset="assets/img/jefferson-640.webp 640w, assets/img/jefferson-800.webp 800w, assets/img/jefferson-1080.webp 1080w" sizes="(max-width: 819px) 100vw, 520px" width="1080" height="1031" loading="lazy" decoding="async" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.05) brightness(.9);">
+      <img data-reveal="1" data-noop="1" data-from="scale(1)" data-clip-from="inset(100% 0 0 0)" src="assets/img/jefferson-800.webp" srcset="assets/img/jefferson-640.webp 640w, assets/img/jefferson-800.webp 800w, assets/img/jefferson-1080.webp 1080w" sizes="(max-width: 819px) 100vw, 520px" width="1080" height="1031" loading="lazy" decoding="async" alt="Jefferson Thales, fundador da Soluna IA" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;clip-path:inset(0 0 0 0);">
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,8,20,0) 55%,rgba(11,8,20,.85) 100%);"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(232,54,143,.25),rgba(232,54,143,0) 30%,rgba(255,122,61,0) 70%,rgba(255,122,61,.22));mix-blend-mode:screen;"></div>
       <div style="position:absolute;left:20px;right:20px;bottom:20px;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);">
@@ -913,7 +912,7 @@
   </div>
 </section>
 
-<section id="duvidas" aria-labelledby="faq-h" style="position:relative;padding:0 clamp(20px,5vw,100px) clamp(88px,9.7vw,140px);">
+<section id="duvidas" aria-labelledby="faq-h" style="position:relative;padding:0 clamp(20px,5vw,100px) 60px;">
   <div style="max-width:880px;margin:0 auto;">
     <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;">
       <div data-reveal="1" style="font:700 13px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;">Dúvidas</div>
@@ -922,37 +921,37 @@
     <div style="display:flex;flex-direction:column;gap:10px;margin-top:clamp(36px,4vw,56px);">
       <div data-reveal="1" data-faq style="border-radius:20px;border:1px solid rgba(255,255,255,.1);background:#15101F;transition:background .3s;">
         <h3 style="margin:0;"><button type="button" aria-expanded="true" aria-controls="faq-a0" id="faq-q0" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px 20px 24px;background:transparent;border:0;color:#F5F3F7;cursor:pointer;text-align:left;font:600 clamp(17px,1.4vw,19px)/1.35 Sora,sans-serif;">Quanto custa um site?<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.16,1,.3,1);transform:rotate(45deg);"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
-        <div id="faq-a0" role="region" aria-labelledby="faq-q0" style="display:grid;grid-template-rows:1fr;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1);"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">A partir de R$ 1.200. O valor final depende das páginas e funcionalidades. O orçamento é gratuito.</p></div></div>
+        <div id="faq-a0" role="region" aria-labelledby="faq-q0" style="display:grid;grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1),visibility .4s;"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">A partir de R$ 1.200. O valor final depende das páginas e funcionalidades. O orçamento é gratuito.</p></div></div>
       </div>
       <div data-reveal="1" data-faq style="border-radius:20px;border:1px solid rgba(255,255,255,.1);background:transparent;transition:background .3s;">
         <h3 style="margin:0;"><button type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px 20px 24px;background:transparent;border:0;color:#F5F3F7;cursor:pointer;text-align:left;font:600 clamp(17px,1.4vw,19px)/1.35 Sora,sans-serif;">Quanto custa um agente de IA?<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.16,1,.3,1);transform:rotate(0deg);"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
-        <div id="faq-a1" role="region" aria-labelledby="faq-q1" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1);"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Implantação a partir de R$ 1.500 e mensalidade a partir de R$ 399, que cobre a operação, o acompanhamento e os ajustes.</p></div></div>
+        <div id="faq-a1" role="region" aria-labelledby="faq-q1" style="display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1),visibility .4s;"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Implantação a partir de R$ 1.500 e mensalidade a partir de R$ 399, que cobre a operação, o acompanhamento e os ajustes.</p></div></div>
       </div>
       <div data-reveal="1" data-faq style="border-radius:20px;border:1px solid rgba(255,255,255,.1);background:transparent;transition:background .3s;">
         <h3 style="margin:0;"><button type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px 20px 24px;background:transparent;border:0;color:#F5F3F7;cursor:pointer;text-align:left;font:600 clamp(17px,1.4vw,19px)/1.35 Sora,sans-serif;">Quanto tempo leva para ficar pronto?<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.16,1,.3,1);transform:rotate(0deg);"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
-        <div id="faq-a2" role="region" aria-labelledby="faq-q2" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1);"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Sites: 15 a 20 dias. Lojas virtuais e sites dinâmicos: 25 a 40 dias. Agentes de IA: 7 a 15 dias.</p></div></div>
+        <div id="faq-a2" role="region" aria-labelledby="faq-q2" style="display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1),visibility .4s;"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Sites: 15 a 20 dias. Lojas virtuais e sites dinâmicos: 25 a 40 dias. Agentes de IA: 7 a 15 dias.</p></div></div>
       </div>
       <div data-reveal="1" data-faq style="border-radius:20px;border:1px solid rgba(255,255,255,.1);background:transparent;transition:background .3s;">
         <h3 style="margin:0;"><button type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px 20px 24px;background:transparent;border:0;color:#F5F3F7;cursor:pointer;text-align:left;font:600 clamp(17px,1.4vw,19px)/1.35 Sora,sans-serif;">Hospedagem e domínio estão inclusos?<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.16,1,.3,1);transform:rotate(0deg);"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
-        <div id="faq-a3" role="region" aria-labelledby="faq-q3" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1);"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Eu configuro domínio, hospedagem e e-mail para você. Os custos anuais de cada serviço aparecem no orçamento, sem surpresa.</p></div></div>
+        <div id="faq-a3" role="region" aria-labelledby="faq-q3" style="display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1),visibility .4s;"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Eu configuro domínio, hospedagem e e-mail para você. Os custos anuais de cada serviço aparecem no orçamento, sem surpresa.</p></div></div>
       </div>
       <div data-reveal="1" data-faq style="border-radius:20px;border:1px solid rgba(255,255,255,.1);background:transparent;transition:background .3s;">
         <h3 style="margin:0;"><button type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px 20px 24px;background:transparent;border:0;color:#F5F3F7;cursor:pointer;text-align:left;font:600 clamp(17px,1.4vw,19px)/1.35 Sora,sans-serif;">Vou conseguir atualizar o site sozinho?<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.16,1,.3,1);transform:rotate(0deg);"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
-        <div id="faq-a4" role="region" aria-labelledby="faq-q4" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1);"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Sim. Você recebe um painel simples e um treinamento.</p></div></div>
+        <div id="faq-a4" role="region" aria-labelledby="faq-q4" style="display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1),visibility .4s;"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Sim. Você recebe um painel simples e um treinamento.</p></div></div>
       </div>
       <div data-reveal="1" data-faq style="border-radius:20px;border:1px solid rgba(255,255,255,.1);background:transparent;transition:background .3s;">
         <h3 style="margin:0;"><button type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px 20px 24px;background:transparent;border:0;color:#F5F3F7;cursor:pointer;text-align:left;font:600 clamp(17px,1.4vw,19px)/1.35 Sora,sans-serif;">O agente de IA substitui meu atendente?<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.16,1,.3,1);transform:rotate(0deg);"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
-        <div id="faq-a5" role="region" aria-labelledby="faq-q5" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1);"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Ele cuida das perguntas repetitivas e do primeiro atendimento; quando precisa de uma pessoa, transfere a conversa.</p></div></div>
+        <div id="faq-a5" role="region" aria-labelledby="faq-q5" style="display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1),visibility .4s;"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Ele cuida das perguntas repetitivas e do primeiro atendimento; quando precisa de uma pessoa, transfere a conversa.</p></div></div>
       </div>
       <div data-reveal="1" data-faq style="border-radius:20px;border:1px solid rgba(255,255,255,.1);background:transparent;transition:background .3s;">
         <h3 style="margin:0;"><button type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px 20px 24px;background:transparent;border:0;color:#F5F3F7;cursor:pointer;text-align:left;font:600 clamp(17px,1.4vw,19px)/1.35 Sora,sans-serif;">Atende fora de São Paulo?<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E8368F,#FF7A3D);display:flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.16,1,.3,1);transform:rotate(0deg);"><svg width="16" height="16" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
-        <div id="faq-a6" role="region" aria-labelledby="faq-q6" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1);"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Sim, atendo empresas de todo o Brasil de forma online.</p></div></div>
+        <div id="faq-a6" role="region" aria-labelledby="faq-q6" style="display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .4s cubic-bezier(.65,0,.35,1),visibility .4s;"><div style="overflow:hidden;"><p style="margin:0;padding:0 24px 24px;font:400 17px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:720px;">Sim, atendo empresas de todo o Brasil de forma online.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section aria-labelledby="cta-h" id="cta" style="position:relative;overflow:hidden;padding:clamp(88px,9.7vw,140px) clamp(20px,5vw,100px) clamp(110px,11vw,170px);">
+<section aria-labelledby="cta-h" id="cta" style="position:relative;overflow:hidden;padding:0 clamp(20px,5vw,100px) 60px;">
   <div id="cta-sun" style="position:absolute;left:50%;top:58%;width:clamp(900px,110vw,1700px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 22%,#FF9A3C 0%,#FF7A3D 14%,#E8368F 38%,#7A3CF0 60%,rgba(122,60,240,0) 72%);transform:translateX(-50%) translateY(45%);pointer-events:none;"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0B0814 0%,rgba(11,8,20,.6) 45%,rgba(11,8,20,0) 75%);pointer-events:none;"></div>
   <div style="position:relative;z-index:1;max-width:1240px;margin:0 auto;">
@@ -973,7 +972,7 @@
         </div>
         <div style="height:1px;background:rgba(255,255,255,.1);"></div>
         <div style="display:flex;flex-direction:column;gap:8px;font:500 15px/1.4 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">
-          <a href="mailto:jeff.thchaves@gmail.com" style="color:#D9D4E0;">jeff.thchaves@gmail.com</a>
+          <a href="mailto:jeff.thchaves@gmail.com" class="tap-m" style="color:#D9D4E0;">jeff.thchaves@gmail.com</a>
           <span>Atendimento online para todo o Brasil</span>
         </div>
       </div>
@@ -1006,15 +1005,15 @@
 </section>
 </main>
 
-<footer style="position:relative;padding:clamp(64px,7vw,96px) clamp(20px,5vw,100px) 28px;border-top:1px solid rgba(255,255,255,.08);background:#0B0814;overflow:hidden;">
+<footer style="position:relative;padding:60px clamp(20px,5vw,100px) 28px;border-top:1px solid rgba(255,255,255,.08);background:#0B0814;overflow:hidden;">
   <div style="max-width:1240px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;">
       <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="display:flex;align-items:center;gap:12px;"><span style="width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C 0%,#FF7A3D 25%,#E8368F 65%,#7A3CF0 100%);flex:none;"></span><span style="display:flex;flex-direction:column;gap:2px;"><span style="font:600 17px/1 Sora,sans-serif;">Jefferson Thales</span><span style="font:500 11px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">by Soluna IA</span></span></div>
+        <div style="display:flex;align-items:center;gap:12px;"><span style="width:50px;height:50px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C 0%,#FF7A3D 25%,#E8368F 65%,#7A3CF0 100%);flex:none;"></span><span style="display:flex;flex-direction:column;gap:2px;"><span style="font:600 17px/1 Sora,sans-serif;">Jefferson Thales</span><span style="font:500 12px/1 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;">by Soluna IA</span></span></div>
         <p style="margin:0;font:400 16px/1.6 'Plus Jakarta Sans',sans-serif;color:#B7B0C2;max-width:300px;">Sites e agentes de IA para negócios que querem crescer.</p>
         <p style="margin:0;font:500 14px/1.5 'Plus Jakarta Sans',sans-serif;color:#8E869C;">Jefferson Thales é fundador da Soluna IA.</p>
       </div>
-      <nav aria-label="Rodapé" style="display:flex;flex-direction:column;gap:12px;">
+      <nav aria-label="Rodapé" class="foot-links" style="display:flex;flex-direction:column;gap:12px;">
         <div style="font:700 12px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;margin-bottom:4px;">Navegação</div>
         <a href="#servicos" style="font:500 15px/1.3 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">Serviços</a>
         <a href="#agentes" style="font:500 15px/1.3 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">Agentes de IA</a>
@@ -1023,7 +1022,7 @@
         <a href="#precos" style="font:500 15px/1.3 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">Preços</a>
         <a href="#duvidas" style="font:500 15px/1.3 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">Dúvidas</a>
       </nav>
-      <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="foot-links" style="display:flex;flex-direction:column;gap:12px;">
         <div style="font:700 12px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8368F;margin-bottom:4px;">Contato</div>
         <a href="https://wa.me/5511924574553?text=Ol%C3%A1%2C%20Jefferson!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento%20gratuito." target="_blank" rel="noopener" style="font:500 15px/1.3 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">WhatsApp (11) 92457-4553</a>
         <a href="mailto:jeff.thchaves@gmail.com" style="font:500 15px/1.3 'Plus Jakarta Sans',sans-serif;color:#D9D4E0;">jeff.thchaves@gmail.com</a>
@@ -1037,7 +1036,7 @@
     </div>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font:500 13px/1.4 'Plus Jakarta Sans',sans-serif;color:#8E869C;">
       <span>© 2026 Soluna IA · CNPJ 49.954.895/0001-92</span>
-      <a href="politica-de-privacidade.html" style="color:#8E869C;">Política de Privacidade</a>
+      <a href="politica-de-privacidade.html" class="tap-m" style="color:#8E869C;">Política de Privacidade</a>
     </div>
   </div>
 </footer>
@@ -1057,7 +1056,7 @@
 
 <div id="luna-panel" class="luna-panel" role="dialog" aria-label="Chat com a Luna, agente de IA da Soluna" hidden style="position:fixed;z-index:96;background:#120D1D;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 100px -20px rgba(0,0,0,.85),0 0 90px -20px rgba(122,60,240,.65);flex-direction:column;overflow:hidden;animation:msgIn .4s cubic-bezier(.16,1,.3,1) both;">
   <div style="flex:none;display:flex;align-items:center;gap:12px;padding:16px 16px 16px 20px;border-bottom:1px solid rgba(255,255,255,.08);">
-    <div style="position:relative;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C,#E8368F 65%,#7A3CF0);display:flex;align-items:center;justify-content:center;font:700 18px/1 Sora,sans-serif;color:#fff;flex:none;">L<span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#3DDC97;border:2px solid #120D1D;"></span></div>
+    <div style="position:relative;width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 35% 70%,#FF9A3C,#E8368F 65%,#7A3CF0);display:flex;align-items:center;justify-content:center;font:700 18px/1 Sora,sans-serif;color:#fff;flex:none;">L<span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#3DDC97;border:2px solid #120D1D;"></span></div>
     <div style="flex:1;min-width:0;"><div style="font:600 16px/1.2 Sora,sans-serif;">Luna · Soluna IA</div><div style="display:flex;align-items:center;gap:6px;font:500 13px/1.2 'Plus Jakarta Sans',sans-serif;color:#3DDC97;margin-top:4px;"><span style="width:7px;height:7px;border-radius:50%;background:#3DDC97;"></span>online agora</div></div>
     <button type="button" id="luna-close" aria-label="Fechar chat" style="width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:transparent;color:#F5F3F7;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
   </div>
@@ -1075,6 +1074,6 @@
 </div>
 
 </div>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=20261001b" defer></script>
 </body>
 </html>

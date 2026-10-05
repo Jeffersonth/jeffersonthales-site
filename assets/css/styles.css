@@ -1,4 +1,8 @@
 /* Base — fiel ao design "Landing Page.dc.html" */
+
+/* Fontes hospedadas no próprio site (Google Fonts, licença OFL) — variáveis, subconjunto latino */
+@font-face{font-family:'Sora';font-style:normal;font-weight:500 700;font-display:swap;src:url(../fonts/sora-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url(../fonts/plus-jakarta-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 html{scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;background:#0B0814;color:#F5F3F7;font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -62,7 +66,12 @@ html.js-pending [data-reveal]{visibility:hidden}
 @media (max-width:819.98px){.proc-title{position:relative;top:auto}}
 
 /* Portfólio: rolagem horizontal fixa no desktop, carrossel no celular */
-.port-inner{position:sticky;top:0;height:100vh}
+.port-inner{position:sticky;top:0}
+/* Tela baixa demais para prender a seção: vira carrossel com barra de rolagem */
+.port-nopin .port-inner{position:relative!important;top:auto!important}
+.port-nopin .port-track{overflow-x:auto!important;scrollbar-width:thin!important;scrollbar-color:rgba(232,54,143,.6) transparent}
+.port-nopin .port-track::-webkit-scrollbar{display:block!important;height:6px}
+.port-nopin .port-track::-webkit-scrollbar-thumb{background:rgba(232,54,143,.6);border-radius:3px}
 .port-track{overflow-x:visible}
 .port-card{flex:0 0 440px}
 @media (max-width:819.98px){
@@ -80,3 +89,44 @@ html.js-pending [data-reveal]{visibility:hidden}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+
+/* Alvos de toque com pelo menos 40px no celular */
+@media (max-width:819.98px){
+  .foot-links{gap:0!important}
+  .foot-links a{display:block;padding:10px 0}
+  .tap-m{display:inline-block;padding:11px 0}
+}
+
+/* Cabeçalho: menu completo a partir de 1000px; compacto até 1180px */
+@media (max-width:999.98px){.hdr-d{display:none!important}}
+@media (min-width:1000px){.hdr-m{display:none!important}}
+.brand span{white-space:nowrap}
+@media (min-width:1000px) and (max-width:1180px){
+  header nav{gap:18px!important}
+  header nav a{font-size:14px!important;white-space:nowrap}
+  header .h-grad-sm{padding:0 16px!important;white-space:nowrap}
+}
+
+/* Hero em uma coluna (abaixo de ~1000px): sol e cards centralizados na foto */
+@media (max-width:999.98px){
+  .hero-sun{right:auto!important;left:50%!important;margin-left:calc(clamp(320px,34vw,500px) / -2)}
+}
+@media (min-width:560px) and (max-width:999.98px){
+  .hero-code{left:calc(50% - 380px)!important}
+  .hero-sites{right:calc(50% - 330px)!important}
+  .hero-chat{left:calc(50% - 360px)!important}
+  .hero-speed{right:auto!important;left:calc(50% - 330px)!important}
+}
+/* Duas colunas com a coluna da foto estreita: só o card de chat, abaixo do rosto */
+@media (min-width:1000px) and (max-width:1279.98px){
+  .hero-chat{top:auto!important;bottom:8%!important;left:-4%!important}
+  .hero-sites{display:none!important}
+  .hero-speed{display:none!important}
+}
+
+/* Grades de 4 itens: 2 colunas no tablet */
+@media (min-width:560px) and (max-width:999.98px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* Card "Site dinâmico": espaço para as miniaturas não cobrirem o texto */
+@media (max-width:999.98px){.card-din{min-height:350px!important}}
+@media (max-width:559.98px){.card-din{min-height:420px!important}}
