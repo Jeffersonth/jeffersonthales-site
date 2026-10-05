@@ -7,11 +7,7 @@
     whatsapp: '5511924574553',
     // Vazio = o formulário abre o WhatsApp com o pedido preenchido (padrão).
     // Com uma URL (Formspree, Web3Forms…), o pedido é enviado por POST {nome, whatsapp, tipo, mensagem}.
-    formEndpoint: '',
-    // Backend da Luna (api/luna.php): POST {messages:[{role,content}]} → {reply:"..."}.
-    // Se falhar ou não estiver configurado, a Luna usa as respostas prontas de fallback().
-    lunaEndpoint: '/api/luna.php',
-    lunaPreviewSeconds: 20
+    formEndpoint: ''
   };
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -344,80 +340,8 @@
     });
   });
 
-  // ---------- Luna (agente de IA) ----------
-  // O prompt da Luna fica só no servidor (api/luna.php).
-  var luna = { msgs: [{ role: 'assistant', text: 'Oi! Eu sou a Luna, agente de IA da Soluna. Posso te contar preços, prazos ou já montar seu pedido de orçamento. Como posso ajudar?' }], busy: false };
-  var logs = $$('[data-luna-log]');
-
-  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function lunaWa() {
-    var u = luna.msgs.filter(function (m) { return m.role === 'user'; }).map(function (m) { return m.text; }).join(' / ');
-    return wa('Olá, Jefferson! Vim pela Luna no site. Resumo da conversa: ' + (u || 'quero um orçamento'));
-  }
-  var WA_ICON = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>';
-  var DOT = '<span style="width:7px;height:7px;border-radius:50%;background:#B7B0C2;animation:dot 1.2s VAR infinite;"></span>';
-  function renderLuna() {
-    var html = luna.msgs.map(function (m) {
-      if (m.role === 'user') return '<div style="align-self:flex-end;max-width:82%;background:linear-gradient(90deg,#E8368F,#FF7A3D);padding:12px 16px;border-radius:18px 18px 6px 18px;font:500 15px/1.5 \'Plus Jakarta Sans\',sans-serif;color:#fff;animation:msgIn .4s cubic-bezier(.16,1,.3,1) both;">' + esc(m.text) + '</div>';
-      return '<div style="align-self:flex-start;max-width:86%;display:flex;flex-direction:column;gap:8px;animation:msgIn .4s cubic-bezier(.16,1,.3,1) both;"><div style="background:#1E1730;border:1px solid rgba(255,255,255,.06);padding:12px 16px;border-radius:18px 18px 18px 6px;font:400 15px/1.55 \'Plus Jakarta Sans\',sans-serif;color:#F5F3F7;">' + esc(m.text) + '</div>' +
-        (m.cta ? '<a href="' + esc(lunaWa()) + '" target="_blank" rel="noopener" style="align-self:flex-start;height:44px;padding:0 16px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#06210F;font:700 14px/1 \'Plus Jakarta Sans\',sans-serif;">' + WA_ICON + 'Continuar no WhatsApp</a>' : '') + '</div>';
-    }).join('');
-    if (luna.busy) html += '<div aria-label="Luna está digitando" style="align-self:flex-start;display:flex;gap:5px;padding:14px 16px;border-radius:18px 18px 18px 6px;background:#1E1730;">' + DOT.replace('VAR', '0s') + DOT.replace('VAR', '.15s') + DOT.replace('VAR', '.3s') + '</div>';
-    logs.forEach(function (l) { l.innerHTML = html; l.scrollTop = l.scrollHeight; });
-  }
-  function fallback(t) {
-    var s = t.toLowerCase();
-    if (/orçamento|orcamento|quero|contratar|falar/.test(s)) return 'Perfeito! Me conta rapidinho: qual é o seu negócio e o que você precisa? Se preferir, já te passo para o WhatsApp do Jefferson com o resumo desta conversa. [WHATSAPP]';
-    if (/agente|ia\b|whats|robô|robo|atendimento/.test(s)) return 'O agente de IA atende seus clientes no WhatsApp 24h, tira dúvidas, qualifica e agenda sozinho. A implantação começa em R$ 1.500 e a mensalidade em R$ 399. Quer ver como ficaria no seu negócio?';
-    if (/prazo|tempo|demora|dias/.test(s)) return 'Sites ficam prontos em 15 a 20 dias; lojas virtuais e sites dinâmicos, em 25 a 40 dias. Um agente de IA leva de 7 a 15 dias.';
-    if (/preço|preco|custa|valor|site/.test(s)) return 'Os sites começam em R$ 1.200, com design exclusivo, SEO e WhatsApp integrado. O valor final depende das páginas e funções, e o orçamento é gratuito. Quer que eu monte o seu?';
-    return 'Posso te ajudar com preços, prazos e com o agente de IA para WhatsApp. Se quiser, já monto seu pedido de orçamento gratuito.';
-  }
-  function sendLuna(text) {
-    text = (text || '').trim();
-    if (!text || luna.busy) return;
-    luna.msgs.push({ role: 'user', text: text });
-    luna.busy = true; renderLuna();
-    $$('[data-luna-input]').forEach(function (i) { i.value = ''; });
-    var history = luna.msgs.slice(1).map(function (m) { return { role: m.role, content: m.text }; });
-    while (history.length > 19 || (history.length && history[0].role !== 'user')) history.shift();
-    var ask = CONFIG.lunaEndpoint
-      ? fetch(CONFIG.lunaEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: history }) })
-          .then(function (r) { return r.ok ? r.json() : {}; }).then(function (d) { return d.reply || ''; }).catch(function () { return ''; })
-      : new Promise(function (res) { setTimeout(function () { res(''); }, 900); });
-    ask.then(function (reply) {
-      if (!reply) reply = fallback(text);
-      var hasCta = /\[WHATSAPP\]/.test(reply);
-      luna.msgs.push({ role: 'assistant', text: reply.replace(/\[WHATSAPP\]/g, '').trim(), cta: hasCta });
-      luna.busy = false; renderLuna();
-    });
-  }
-  $$('[data-luna-form]').forEach(function (f) {
-    f.addEventListener('submit', function (e) { e.preventDefault(); sendLuna($('[data-luna-input]', f).value); });
-  });
-  $$('[data-sugg]').forEach(function (b) { b.addEventListener('click', function () { sendLuna(b.textContent); }); });
-  renderLuna();
-
-  var panel = $('#luna-panel'), launcher = $('#luna-launcher'), preview = $('#luna-preview');
-  var previewClosed = false, lastFocus = null;
-  function setLuna(open) {
-    panel.hidden = !open; panel.style.display = open ? 'flex' : '';
-    launcher.hidden = open;
-    if (open) { preview.hidden = true; lastFocus = document.activeElement; renderLuna(); $('[data-luna-input]', panel).focus(); }
-    else if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
-    if (isMob()) document.body.style.overflow = open ? 'hidden' : '';
-  }
-  $$('[data-luna-open]').forEach(function (b) { b.addEventListener('click', function () { setLuna(true); }); });
-  $('#luna-close').addEventListener('click', function () { setLuna(false); });
-  preview.addEventListener('click', function () { setLuna(true); });
-  preview.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLuna(true); } });
-  $('#luna-preview-close').addEventListener('click', function (e) { e.stopPropagation(); preview.hidden = true; previewClosed = true; });
-  setTimeout(function () { if (panel.hidden && !previewClosed) preview.hidden = false; }, CONFIG.lunaPreviewSeconds * 1000);
-
   document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    if (!panel.hidden) setLuna(false);
-    else if (state.drawer) setDrawer(false);
+    if (e.key === 'Escape' && state.drawer) setDrawer(false);
   });
 
   // ---------- Formulário de orçamento ----------

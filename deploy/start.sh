@@ -1,6 +1,6 @@
 #!/bin/sh
 # Inicialização do contêiner (imagem oficial php:8.3-apache).
-# Baixa a versão mais recente do site do GitHub, instala o SDK da Luna e sobe o Apache.
+# Baixa a versão mais recente do site do GitHub e sobe o Apache.
 # Para publicar uma atualização: dê push no GitHub e reinicie o projeto no Docker Manager.
 set -eu
 
@@ -10,15 +10,6 @@ WEB=/var/www/html
 echo "[site] baixando o site do GitHub"
 rm -rf /tmp/site && mkdir -p /tmp/site
 curl -fsSL "$REPO_TARBALL" | tar -xz -C /tmp/site --strip-components=1
-
-echo "[site] instalando o SDK da Luna"
-if ! command -v unzip >/dev/null 2>&1; then
-  apt-get update -qq && apt-get install -y -qq --no-install-recommends unzip >/dev/null
-fi
-cd /tmp/site/api
-curl -fsSL https://getcomposer.org/installer -o /tmp/composer-setup.php
-php /tmp/composer-setup.php --quiet --install-dir=/tmp --filename=composer
-COMPOSER_ALLOW_SUPERUSER=1 php /tmp/composer --no-interaction --no-dev --prefer-dist --optimize-autoloader install
 
 echo "[site] publicando arquivos"
 find "$WEB" -mindepth 1 -delete

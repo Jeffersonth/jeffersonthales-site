@@ -80,10 +80,6 @@ html.js-pending [data-reveal]{visibility:hidden}
   .port-card{flex:0 0 85%}
 }
 
-/* Painel flutuante da Luna */
-.luna-panel{top:auto;right:24px;bottom:100px;left:auto;width:384px;height:min(600px,calc(100vh - 140px));border-radius:24px}
-@media (max-width:819.98px){.luna-panel{top:0;right:0;bottom:0;left:0;width:100%;height:100%;border-radius:0}}
-
 /* Movimento reduzido */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -114,13 +110,11 @@ html.js-pending [data-reveal]{visibility:hidden}
 @media (min-width:560px) and (max-width:999.98px){
   .hero-code{left:calc(50% - 380px)!important}
   .hero-sites{right:calc(50% - 330px)!important}
-  .hero-chat{left:calc(50% - 360px)!important}
   .hero-speed{right:auto!important;left:calc(50% - 330px)!important}
 }
-/* Duas colunas com a coluna da foto estreita: só o card de chat, abaixo do rosto */
+/* Duas colunas com a coluna da foto estreita: só o card +300, abaixo do rosto */
 @media (min-width:1000px) and (max-width:1279.98px){
-  .hero-chat{top:auto!important;bottom:8%!important;left:-4%!important}
-  .hero-sites{display:none!important}
+  .hero-sites{top:auto!important;bottom:6%!important;right:auto!important;left:-4%!important}
   .hero-speed{display:none!important}
 }
 
@@ -130,3 +124,7 @@ html.js-pending [data-reveal]{visibility:hidden}
 /* Card "Site dinâmico": espaço para as miniaturas não cobrirem o texto */
 @media (max-width:999.98px){.card-din{min-height:350px!important}}
 @media (max-width:559.98px){.card-din{min-height:420px!important}}
+
+/* Títulos principais (H1 e títulos das seções): 26px no celular, 48px no computador */
+.t-main{font-size:26px!important;line-height:1.15!important}
+@media (min-width:820px){.t-main{font-size:48px!important;line-height:1.1!important}}

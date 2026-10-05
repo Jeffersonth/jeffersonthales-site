@@ -11,7 +11,7 @@ site/
 ├─ robots.txt · sitemap.xml
 └─ assets/
    ├─ css/styles.css              # base, animações, estados de hover e regras de celular
-   ├─ js/main.js                  # animações de rolagem, chat da Luna, portfólio, formulário
+   ├─ js/main.js                  # animações de rolagem, portfólio, formulário
    └─ img/                        # foto, prints do portfólio, favicon e imagem de compartilhamento
 ```
 
@@ -33,14 +33,8 @@ O site roda na VPS Hostinger como projeto Docker `jeffersonthales-site` (`docker
 
 | Opção | O que faz |
 | --- | --- |
-| `whatsapp` | Número usado nos links gerados pelo JavaScript (Luna e formulário). Os links fixos no HTML usam o mesmo número. |
+| `whatsapp` | Número usado nos links gerados pelo JavaScript (formulário). Os links fixos no HTML usam o mesmo número. |
 | `formEndpoint` | Vazio: o formulário abre o WhatsApp com o pedido preenchido. Com uma URL (Formspree, Web3Forms…), o pedido é enviado por e-mail e aparece "Recebi seu pedido". |
-| `lunaEndpoint` | `/api/luna.php` (padrão): a Luna conversa com IA. Vazio: só respostas prontas (preços, prazos, orçamento). O endpoint recebe `POST {messages}` e responde `{reply}`. |
-| `lunaPreviewSeconds` | Segundos até aparecer o balão "Oi! Quer ver quanto custa seu site?". |
-
-## Luna (agente de IA)
-
-`api/luna.php` recebe a conversa e responde com o Claude (`claude-opus-5-5`, esforço baixo, respostas curtas). O prompt fica só no servidor. Limites contra abuso: 20 mensagens por conversa, 1.000 caracteres por mensagem, 20 mensagens por IP a cada 10 minutos e 80 por dia. A chave é lida da variável `ANTHROPIC_API_KEY` ou do arquivo `luna-secret.php` um nível acima da pasta pública. Se o backend falhar, a Luna usa as respostas prontas. Instalação: veja `PUBLICAR.md`.
 
 ## Pendências
 
